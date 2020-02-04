@@ -12,4 +12,4 @@ where -p takes the formatted clustering output and -t takes the true clustes.
 2 S180 S181 S431 S432 S433 S434 S435 S436 S437 S438 S439 S440
 3 S542 S553
  ```
-The first column indicates the cluster number containing sequences which are in the second column. The sequences Id's are seperated by space.
+The first column indicates the cluster number, from second column Ids of sequences grouped into that cluster. The sequences Id's are seperated by space.
