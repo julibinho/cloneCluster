@@ -11,7 +11,7 @@
 
 The input files of Silhouette.py are: 
 
-Clustering_File which contains the output of clustring tool. This file should have the folowing format :
+Clustering_File which contains the output of the clustering tool. This file should have the folowing format :
 
 ``` diff
 Cluster_number	seq1 seq2 seq3,...
