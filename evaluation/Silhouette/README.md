@@ -7,7 +7,7 @@ $python  Silhouette.py -f <clustering file> -c <fasta file>
 
 
 
-# Input 
+# Inputs
 
 The input files of Silhouette.py are: 
 
