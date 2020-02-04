@@ -1,7 +1,7 @@
 # Silhouette
 **Command-line manual**
 ``` bash
-$python  Silhouette.py -f <clustering output> -c <fasta sequences>
+$python  Silhouette.py -f <clustering file> -c <fasta file>
 ```
 
 
