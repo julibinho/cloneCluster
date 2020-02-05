@@ -57,7 +57,7 @@ The silhouette measures the degree of similarity (cohesion) within a cluster/clo
 and the dissimilarity (separation) across different clones. 
 This measure was applied to evaluate the performance of
 experimental repertoires because it does not require true clone information. 
-The silhouette s(i) for a sequence $i$ is defined by
+The silhouette s(i) for a sequence i is defined by
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{100}&space;s(i)&space;=&space;\frac{&space;b(i)&space;-&space;a(i)}{max&space;(a(i),&space;b(i))}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{100}&space;s(i)&space;=&space;\frac{&space;b(i)&space;-&space;a(i)}{max&space;(a(i),&space;b(i))}" title="s(i) = \frac{ b(i) - a(i)}{max (a(i), b(i))}" /></a>
 
