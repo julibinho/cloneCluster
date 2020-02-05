@@ -31,7 +31,7 @@ A pair of sequences (i,j) is counted as: TP, if the sequences are found together
 FP, if the sequences are found separated in the 'true' clone, but together in the 'inferred' one; 
 FN, if the pair is found together in the 'true' clone but separated in the 'inferred' one, see an illustration in Sup Fig 1.
 
-Once TP, FP and FN are computed, the precision $p$, also known as positive predictive value (PPV), is defined by<a href="https://www.codecogs.com/eqnedit.php?latex=p=\frac{TP}{TP&space;&plus;&space;FP}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?p=\frac{TP}{TP&space;&plus;&space;FP}" title="p=\frac{TP}{TP + FP}" /></a>, the recall r, or  sensitivity, is defined by <img src="https://latex.codecogs.com/svg.latex?\Large&space;r=\frac{TP}{TP + FN}" title="\Large r = \frac{TP}{TP + FN}" /> , and the F<sub>1</sub>-score, that combines both precision and the recall, is defined by
+Once TP, FP and FN are computed, the precision $p$, also known as positive predictive value (PPV), is defined by <a href="https://www.codecogs.com/eqnedit.php?latex=\dpi{80}&space;p=\frac{TP}{TP&space;&plus;&space;FP}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\dpi{80}&space;p=\frac{TP}{TP&space;&plus;&space;FP}" title="p=\frac{TP}{TP + FP}" /></a>, the recall r, or  sensitivity, is defined by <img src="https://latex.codecogs.com/svg.latex?\Large&space;r=\frac{TP}{TP + FN}" title="\Large r = \frac{TP}{TP + FN}" /> , and the F<sub>1</sub>-score, that combines both precision and the recall, is defined by
 \textrm{F}_{1}\textrm{-score} = \frac{2*p*r}{p + r}. The values of these three metrics are between 0 and 1, being 1 the best and
 0 the worse performance.\\
 
