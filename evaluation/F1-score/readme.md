@@ -19,7 +19,7 @@ When B-cell clonal expansion is known we can assess the ability of the
 clustering algorithms to identify clonally-related sequences belonging to the same
 clone. In such a case we apply classical measures such as precision and
 recall that compare the inferred clones to the real ones.  We can also
-compute the F$_{1}$-score, the harmonic average of the precision and recall. 
+compute the F;<sub>1</sub>-score, the harmonic average of the precision and recall. 
 However, these comparatives measures are only applicable to the simulated repertoires, since
 we don't know the true clones or groups of clonally-related sequences in experimental data.
 
