@@ -69,9 +69,9 @@ distance of i to all sequence in any other cluster/clone.
 We have used the Levenshtein metric to compute the distance between sequences. The Levenshtein distance computes the minimum
 number of single-character edition (insertions, deletions or substitutions)
 required to transform one sequence into the other. The value of s(i) is
-between -1 and 1, a value close to 1 means that $i$ was 
+between -1 and 1, a value close to 1 means that i was 
 clustered, appropriately. A value close to 0 indicates that i is
 on (or very close to) the decision boundary, and it could be placed in another
-cluster. Finally, a value close to -1 suggests that $i$  was placed
-in the wrong cluster. We have averaged $s(i)$ over
-all sequences to obtain the clustering performance.}\\
+cluster. Finally, a value close to -1 suggests that i  was placed
+in the wrong cluster. We have averaged s(i) over
+all sequences to obtain the clustering performance
