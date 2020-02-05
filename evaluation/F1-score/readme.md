@@ -35,5 +35,5 @@ Once TP, FP and FN are computed, the precision $p$, also known as positive predi
 $\textrm{F}_{1}\textrm{-score} = \frac{2*p*r}{p + r}$. The values of these three metrics are between 0 and 1, being 1 the best and
 0 the worse performance.\\
 
-
+<img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
 ![image of F1-score](PR_paiwise.png)
