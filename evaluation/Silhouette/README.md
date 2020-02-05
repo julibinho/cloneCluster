@@ -74,4 +74,4 @@ clustered, appropriately. A value close to 0 indicates that i is
 on (or very close to) the decision boundary, and it could be placed in another
 cluster. Finally, a value close to -1 suggests that i  was placed
 in the wrong cluster. We have averaged s(i) over
-all sequences to obtain the clustering performance
+all sequences to obtain the clustering performance.
