@@ -16,4 +16,4 @@ The first column indicates the cluster number, from second column Ids of sequenc
 
 ## Pairwise F1-score calculation
 
-![image of F1-score](cloneCluster/evaluation/F1-score/PR_paiwise.png)
+![image of F1-score](PR_paiwise.png)
