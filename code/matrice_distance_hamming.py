@@ -1,19 +1,7 @@
-input = 'monoclonal_simp_indel_cdr3.fa'
-Set = []
-with open(input, "r") as fasta_file:
-    for line in fasta_file:
-        if not line.startswith(">"):
-            Set.append(line.strip()) 
+#! /usr/bin/env python3
+# coding: utf-8
 
-#Set contient toutes les séquences, il faut maintenant les trier par tailles
-Dico = {}
-for s in Set :
-	if len(s) not in Dico :
-		Dico[len(s)] = [s]
-	else :
-		Dico[len(s)].append(s)
-
-print(Dico)
+import numpy as np
 
 def distance_Hamming(seq1, seq2):
     distance=0
@@ -22,15 +10,21 @@ def distance_Hamming(seq1, seq2):
             distance +=1
     return(distance)
 
-import numpy as np
-def matrice_adjacence_Hamming(Longueur_seq):
-    L=Dico[Longueur_seq]
-    M=np.zeros((len(L), len(L)))
-    for i in range (len(L)):
-        for j in range (len(L)):
-            M[i][j]=distance_Hamming(L[i], L[j])
+
+def matrice_adjacence_Hamming(seqs):
+    n = len(seqs)
+    M=np.zeros((n,n))
+    for i in range (n):
+        for j in range (i+1 ,n):
+        	d= distance_Hamming(seqs[i], seqs[j])
+		M[i][j] = d
+		M[j][i] = d #les matrices sont symétriques
     return(M)
 
+def main():
+	pass
+	
+if __name__ == "__main__":
+	matrice_adjacence_Hamming(['a','a'])
 
-for w in Dico.keys():
-    print("Matrice de distances de Hamming pour les", len(Dico[w]), "séquences de longueur ",w,"\n",matrice_adjacence_Hamming(w),"\n")
+
