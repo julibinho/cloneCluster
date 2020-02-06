@@ -1,7 +1,7 @@
 Pour executer le code : 
 
-python clustering.py -d monoclonal_simp_indel_cdr3.fa
+python clustering.py -p data/artficial/Extracted_CDR3/monoclonal_simp_indel_cdr3.fa
 
-ou python clustering.py -d le nom du fichier à tester pour le moment uniquement dans le sous dossier 
-Extracted_CDR3 (il faudra modifier ça!!)
+ou python clustering.py -p et le chemin vers le fichier (à partir de la racine du projet). 
+
 

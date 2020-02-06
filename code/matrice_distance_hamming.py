@@ -20,6 +20,12 @@ def matrice_adjacence_Hamming(seqs):
 		M[i][j] = d
 		M[j][i] = d #les matrices sont symétriques
     return(M)
+    
+def matrices(dico):
+	res = {}
+	for w in dico.keys():
+		res[w] = matrice_adjacence_Hamming(dico[w])
+	return res
 
 def main():
 	pass
