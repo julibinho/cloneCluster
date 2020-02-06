@@ -1,21 +1,25 @@
 # -*- coding: utf-8 -*-
+import os
 
-input = 'monoclonal_simp_indel_cdr3.fa'
-Set = []
-with open(input, "r") as fasta_file:
-    for line in fasta_file:
-        if not line.startswith(">"):
-            Set.append(line.strip()) 
+def tri(data):
+	directory = os.path.dirname(__file__) # we get the right path.
+	path_to_file = os.path.join(directory, "data/artficial/Extracted_CDR3", data) # with this path, we go inside the folder `data` and get the file.
+	#print(path_to_file)
+	dico = {}
+	with open(path_to_file, "r") as fasta_file:
+		for line in fasta_file:
+			if not line.startswith(">"):
+				s = line.strip()
+				#Set.append()
+				if len(s) not in dico :
+					dico[len(s)] = [s]
+				else :
+					dico[len(s)].append(s)
+	#print dico
+	return dico
 
-#Set contient toutes les séquences, il faut maintenant les trier par tailles
-Dico = {}
-for s in Set :
-	if len(s) not in Dico :
-		Dico[len(s)] = [s]
-	else :
-		Dico[len(s)].append(s)
-
-print(Dico)
-
+def main():
+	pass
 	
-
+if __name__ == "__main__":
+	tri('monoclonal_simp_indel_cdr3.fa')
