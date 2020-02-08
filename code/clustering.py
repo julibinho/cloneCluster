@@ -2,6 +2,11 @@
 # coding: utf-8
 import os
 import argparse
+import community
+import networkx as nx
+import matplotlib.pyplot as plt
+
+###################################
 import tri_des_seq as tri
 import matrice_distance_hamming as matHamming
 
