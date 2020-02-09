@@ -3,6 +3,8 @@ from networkx import *
 import networkx as nx
 #import os
 import matplotlib.pyplot as plt
+
+
 def tri(path_to_file):
 	dico = {}
 	with open(path_to_file, "r") as fasta_file:
@@ -16,38 +18,23 @@ def tri(path_to_file):
 					dico[len(s)].append(s)
 	#print(dico)
 	return dico #rend un dictionnaire avec les longeur des séquences comme clés, et les listes de toutes les sequences de cette longueur comme valeur. 
-def tri_pandas(path_to_file):	 #l'idée c'était de transformer une matrice panda en networkx, mais il faut un formalisme spécial pour la forme des matrices : il faut que chaque ligne représente un arc, et ce n'est pas le cas dans ce qui est fait ici. Il faudra reprendre, ou trouver un autre moyens d'avoir le bon graphe. 
+
+def tri_cle_valeur(path_to_file):
 	dico = {}
 	with open(path_to_file, "r") as fasta_file:
 		for line in fasta_file:
 			if line.startswith(">"):
 				name = line.strip()[1:]
-			else :
+			else:
 				seq = line.strip()
 				if len(seq) not in dico :
-					dico[len(seq)] = [(name,seq)]
+					dico[len(seq)] = {name : seq}
 				else :
-					dico[len(seq)].append((name,seq))
+					dico[len(seq)][name] = seq
 	#print(dico)
-	return dico #rend un dictionnaire avec les longeur des séquences comme clés, et les listes de toutes les sequences de cette longueur comme valeur. 
+	return dico #rend un dictionnaire avec les longeur des séquences comme clés, et un dictionnaire associant nom et séquences. Finalement, on a un dictionnaire de dictionnaires. 
 	
 	
-	
-def creation_des_graphes(path_to_file):
-	dico = {}
-	with open(path_to_file, "r") as fasta_file:
-		for line in fasta_file:
-			if line.startswith(">"):
-				name = line.strip()[1:]
-			else :
-				seq = line.strip()
-				if len(seq) not in dico :
-					dico[len(seq)] = nx.Graph()
-					dico[len(seq)].add_node((name,seq))
-				else :
-					dico[len(seq)].add_node((name,seq))
-	#print("done")
-	return dico #rend un dictionnaire donc les longueurs sont les clés, et les valeurs sont des networkx avec les noeuds sous la forme (id, séquence)
 
 
 def main():
