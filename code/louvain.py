@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# coding: utf-8
+
 import community as cmty
 from networkx import *
 import networkx as nx
@@ -42,7 +45,7 @@ def print_louvain(partition):
 				if x != y :
 					G.add_edge(x,y)
 		nx.draw_networkx_nodes(G, pos, list_nodes, node_size = 20, node_color = str(count / size))
-	nx.draw_networkx_labels(G,pos,labels = lab,font_size=5)
+	nx.draw_networkx_labels(G,pos,labels = lab,font_size=12)
 
 	nx.draw_networkx_edges(G, pos, alpha=0.5)
 	plt.show()
