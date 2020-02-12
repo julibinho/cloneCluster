@@ -5,3 +5,8 @@ python clustering.py -p data/artficial/Extracted_CDR3/monoclonal_simp_indel_cdr3
 ou python clustering.py -p et le chemin vers le fichier (à partir de la racine du projet) -s la longueur de séquence pour laquelle on veut représenter le graphe
 
 L'execution de clustering affiche un graphe de clustering obtenu grace à l'algorithme de louvain. 
+
+python clustering.py -p data/artficial/Extracted_CDR3/oligoclonal_simp_indel_cdr3.fa
+
+
+python  Evaluate_Sim_Cluster.py -p res.txt -t oligoclonal_simp_indel_true_clusters.txt
