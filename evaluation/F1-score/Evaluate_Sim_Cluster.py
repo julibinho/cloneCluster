@@ -68,7 +68,7 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 			sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
 			#print (tp, fp, fn)
 		
-	print (sumTp, sumFp, sumFn, sumTn)
+	#print (sumTp, sumFp, sumFn, sumTn)
 	
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
@@ -94,7 +94,9 @@ def readResultFile(filename):
 		if (members == "\n" or members == ""):
 			print ("Warnning:: Cluster ", IDcluster, " has no members")
 		else: 
-			arraySeqIds = members.split(" ")
+			#delet /n at the end of each line
+			arraySeqIds = members.split(" ")[:-1]
+			#print arraySeqIds
 			#print len(arraySeqIds)
 			#print arraySeqIds
 			if len(arraySeqIds) != 0:
@@ -103,7 +105,7 @@ def readResultFile(filename):
 				totalSeq += len(arraySeqIds)
 	file.close()
 	#print cluster,"cluster"
-	print ("Cluster results\nTotal of clusters = ", count," Total sequences = " , totalSeq)
+	print ("Total clusters = ", count," Total sequences = " , totalSeq)
 	return  cluster,totalSeq
 	
 # =============================================================================
@@ -116,6 +118,7 @@ def readTrueClusterFile(filename):
 	for line in file.readlines(): 
 		IDcluster = int(line.split('\t')[0].rstrip())
 		seq = line.split('\t')[1].split(" ")
+		seq[-1] = seq[-1].rstrip()
 		#print seq
 		for s in seq:
 			#hashCluster_detail[int(s)] = IDcluster
