@@ -10,4 +10,6 @@ python3 $ALGO -p $DATA -r $RESULT
 
 calcule les partition optimales, et 
 
-python3 $F1 -p $RESULT -t $REF affiche l'analyse de l'algorithme
+python3 $F1 -p $RESULT -t $REF 
+
+affiche l'analyse de l'algorithme
