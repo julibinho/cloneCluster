@@ -19,7 +19,7 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 
 	for i in cluster:
 		count +=1
-		if (count % 5000 == 0): print "Processed ", count
+		if (count % 5000 == 0): print("Processed "), count
 		
 		arraySeqIds = cluster[i]
 		#print arraySeqIds,"arraySeqIds"
@@ -62,13 +62,13 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 			
 			fn = totalCluster - tp
 			if fn<0:
-				print "erreur"
+				print("erreur")
 			fp = len(arraySeqIds) - tp
 			tn = totalSeq -(tp+ fn +fp)
 			sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
 			#print (tp, fp, fn)
 		
-	print sumTp, sumFp, sumFn, sumTn
+	print (sumTp, sumFp, sumFn, sumTn)
 	
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
@@ -86,13 +86,13 @@ def readResultFile(filename):
 		#print line.split('\t')
 		a=line.split('\t')
 		count +=1
-		if (count % 5000 == 0): print "Processed ", count
+		if (count % 5000 == 0): print ("Processed ", count)
 		IDcluster = int(a[0])
 		members = a[1]
 
 		#print len(members),"members"
 		if (members == "\n" or members == ""):
-			print "Warnning:: Cluster ", IDcluster, " has no members"
+			print ("Warnning:: Cluster ", IDcluster, " has no members")
 		else: 
 			arraySeqIds = members.split(" ")
 			#print len(arraySeqIds)
@@ -103,7 +103,7 @@ def readResultFile(filename):
 				totalSeq += len(arraySeqIds)
 	file.close()
 	#print cluster,"cluster"
-	print "Cluster results\nTotal of clusters = ", count," Total sequences = " , totalSeq
+	print ("Cluster results\nTotal of clusters = ", count," Total sequences = " , totalSeq)
 	return  cluster,totalSeq
 	
 # =============================================================================

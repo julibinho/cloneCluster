@@ -21,7 +21,7 @@ def cluster_louvain(dico):
 
 def print_louvain(partition):
 	#drawing
-	print partition
+	print(partition)
 	G = nx.Graph()
 	lab = {}
 	for y in partition.keys():

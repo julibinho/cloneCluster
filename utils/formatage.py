@@ -9,14 +9,14 @@ def resultat_pour_une_partition(part, i_min):
 			list_nodes = [nodes for nodes in part.keys() if part[nodes] == w]
 			list_nodes.sort()
 			for x in list_nodes :
-				res += x + "\t"
+				res += x + " "
 			res += "\n"
 	#print res
 	return res
 
-def formatage(dico): #rassemble toutes les partitions
+def formatage(dico, path): #rassemble toutes les partitions
 	count = 0
-	with open("res.txt", "w" ) as fichier :
+	with open(path, "w" ) as fichier :
 		for w in dico.keys() :
 			n = len(set(dico[w].values())) 
 			fichier.write(resultat_pour_une_partition(dico[w],count))

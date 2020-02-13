@@ -4,6 +4,7 @@
 import numpy as np
 import networkx as nx
 import pandas as pd
+import copy
 
 def distance_Hamming(seq1, seq2):
     distance=0
@@ -42,11 +43,13 @@ def matrices(dico):
 	
 def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnaire avec des graphes comme valeurs
 	res = {}
+	d2 = copy.deepcopy(dico) #copie indépendante de l'entrée
 	for w in dico.keys():
+		#print(w, ' : ', dico[w], '\n\n\n')
 		G_courant = nx.Graph()
 		for x in dico[w].keys():
-			seq = dico[w].pop(x)
-			for y in dico[w].keys() :
+			seq = d2[w].pop(x) # on retire la séquences courante du dictionnaire d2, qui mémorise les séquences déjà parcourues
+			for y in d2[w].keys() : #on ne calcule la distance que pour les séquences qui n'ont pas encore étées parcourues. 
 				d = distance_Hamming(dico[w][y], seq)
 				G_courant.add_edge(x,y)
 				G_courant[x][y]['weight'] = d
