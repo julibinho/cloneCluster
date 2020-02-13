@@ -10,3 +10,10 @@ python clustering.py -p data/artficial/Extracted_CDR3/oligoclonal_simp_indel_cdr
 
 
 python  Evaluate_Sim_Cluster.py -p res.txt -t oligoclonal_simp_indel_true_clusters.txt
+
+
+Cluster results
+Total of clusters =  44  Total sequences =  44
+44.0 0.0 1475.0 417.0
+('Pre = ', 1.0, 'Rec = ', 0.028966425279789335, 'specificity = ', 1.0, 'F-score = ', 0.05630198336532309, 'NumCluster = ', 44, 'NumSeqs = ', 44, ' sumTtC = ', 1519)
+

@@ -3,13 +3,13 @@
 def resultat_pour_une_partition(part, i_min):
 	res = ''
 	for w in set(part.values()) :
-			res += "%i" % (i_min + w) + " "
+			res += "%i" % (i_min + w) + "\t"
 			
 			
 			list_nodes = [nodes for nodes in part.keys() if part[nodes] == w]
 			list_nodes.sort()
 			for x in list_nodes :
-				res += x + " "
+				res += x + "\t"
 			res += "\n"
 	#print res
 	return res

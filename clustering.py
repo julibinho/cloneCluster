@@ -5,12 +5,12 @@ import argparse
 import community
 import networkx as nx
 import matplotlib.pyplot as plt
-import louvain as l
-import affichage
-import formatage as fr
+import utils.louvain as l
+import utils.affichage
+import utils.formatage as fr
 ###################################
-import tri_des_seq as tri
-import matrice_distance_hamming as matHamming
+import utils.tri_des_seq as tri
+import utils.matrice_distance_hamming as matHamming
 
 def parse_arguments():
 	parser = argparse.ArgumentParser()
@@ -30,7 +30,7 @@ def main():
 	
 	dico_des_sequences = tri.tri_cle_valeur(path_to_file) #trie les séquences par tailles
 	dico_des_graphes = matHamming.instanciation_des_graphes_cle_valeur(dico_des_sequences) # crée les graphes de distances
-	#affichage.affiche_G_avec_poids(dico_des_graphes[8])
+	#affichage.affiche_G_avec_poids(dico_des_graphes[size])
 	partitions = l.cluster_louvain(dico_des_graphes) # renvoie un dictionnaire contenant les partitions par tailles
 	#l.print_louvain(partitions[size]) 
 	fr.formatage(partitions)
