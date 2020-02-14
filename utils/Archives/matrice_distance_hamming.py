@@ -3,7 +3,6 @@
 
 import numpy as np
 import networkx as nx
-import pandas as pd
 import copy
 
 def distance_Hamming(seq1, seq2):
