@@ -35,10 +35,31 @@ def generate_graph(path_to_file):
 						dico[n].add_edge(name,node[0])
 						dico[n][name][node[0]]['weight'] = d
 	return dico #rend un dictionnaire avec les longeur des séquences comme clés, et un dictionnaire associant nom et séquences. Finalement, on a un dictionnaire de dictionnaires. s
+	
+def generate(path_to_file):
+	dico = {}
+	liste = []
+	with open(path_to_file, "r") as fasta_file:
+		for line in fasta_file:
+			if line.startswith(">"):
+				name = line.strip()[1:]
+			else:
+				seq = line.strip()
+				n = len(seq)
+				if n not in dico :
+					dico[n] = {name : seq}
+				else :
+					dico[n][name]= seq
+					for w in dico[n].keys() :
+						liste.append((name, w, {'weight' : distance_Hamming(seq,dico[n][w])}))
+					
+	G = nx.Graph()
+	G.add_edges_from(liste)
+	return G #rend un dictionnaire avec les longeur des séquences comme clés, et un dictionnaire associant nom et séquences. Finalement, on a un dictionnaire de dictionnaires. s
 
 
 def main():
-	generate_graph('/home/lisa/Programmation/cloneCluster/data/artficial/Extracted_CDR3/monoclonal_simp_indel_cdr3.fa')
+	generate('/home/lisa/Programmation/cloneCluster/data/artficial/Extracted_CDR3/monoclonal_simp_indel_cdr3.fa')
 
 if __name__ == "__main__":
 	main()

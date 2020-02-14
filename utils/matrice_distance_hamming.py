@@ -43,17 +43,29 @@ def matrices(dico):
 	
 def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnaire avec des graphes comme valeurs
 	res = {}
+	count = 0
+	c1 = 0
 	d2 = copy.deepcopy(dico) #copie indépendante de l'entrée
 	for w in dico.keys():
 		#print(w, ' : ', dico[w], '\n\n\n')
+		#if(len(dico[w]) == 1 ):
+			#print('séquence seule de la taille : ', w, ' : ' , dico[w].keys())
 		G_courant = nx.Graph()
 		for x in dico[w].keys():
+			count += 1
 			seq = d2[w].pop(x) # on retire la séquences courante du dictionnaire d2, qui mémorise les séquences déjà parcourues
+			G_courant.add_node(x) #certaines séquences sont les seules de leur tailles???
 			for y in d2[w].keys() : #on ne calcule la distance que pour les séquences qui n'ont pas encore étées parcourues. 
 				d = distance_Hamming(dico[w][y], seq)
 				G_courant.add_edge(x,y)
 				G_courant[x][y]['weight'] = d
+		c1 += len(list(G_courant.nodes()))
 		res[w] = G_courant
+	#print(count)
+	countbis = 0
+	for w in res.keys():
+		countbis += len(list(res[w].nodes()))
+	#print('dans matrice de hamming',  c1)
 	return res #retourne un dictionnaire de graphes
 
 def main():

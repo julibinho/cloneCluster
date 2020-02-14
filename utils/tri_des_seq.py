@@ -21,9 +21,11 @@ def tri(path_to_file):
 
 def tri_cle_valeur(path_to_file):
 	dico = {}
+	count = 0
 	with open(path_to_file, "r") as fasta_file:
 		for line in fasta_file:
 			if line.startswith(">"):
+				count += 1
 				name = line.strip()[1:]
 			else:
 				seq = line.strip()
@@ -32,6 +34,10 @@ def tri_cle_valeur(path_to_file):
 				else :
 					dico[len(seq)][name] = seq
 	#print(dico)
+	countbis = 0
+	for w in dico.keys():
+		countbis += len(dico[w])
+	#print('dans tri : ' , count == countbis, count)
 	return dico #rend un dictionnaire avec les longeur des séquences comme clés, et un dictionnaire associant nom et séquences. Finalement, on a un dictionnaire de dictionnaires. 
 	
 	
