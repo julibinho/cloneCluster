@@ -1,3 +1,8 @@
+Pour le jeux de données : polyclonal_simp_indel_cdr3
+lors d'executions successives du même algo, on trouve des résultats différents (55, 56 ou 57) : 
+
+
+
 lisa@lisa-Swift-SF515-51T:~/Programmation/cloneCluster$ python3 $ALGO -p $DATA -r $RESULT
 lisa@lisa-Swift-SF515-51T:~/Programmation/cloneCluster$ python3 $F1 -p $RESULT -t $REF
 Total clusters =  57  Total sequences =  944
