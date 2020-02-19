@@ -87,7 +87,7 @@ def Plot(Clustering_lables,FastaFile):
 	for key in Clustering_lables.keys():
 		x.append(len(Clustering_lables[key]))
 		if len(Clustering_lables[key]) == 0:
-			print key
+			print(key)
 	X=np.array(sorted(x))
 	
 	
@@ -130,14 +130,14 @@ def Plot(Clustering_lables,FastaFile):
 #####################################################################
 def CalculateMedoid(Dicofasta,Dicoresult):
 	centroid={}
-	print "Calculating Medoid sequence of each cluster ... \n"
+	print("Calculating Medoid sequence of each cluster ... \n")
 	for key in tqdm.tqdm(Dicoresult.keys()) :
 		listloc=[]
 		for seq in Dicoresult[key]:
 			if seq.rstrip() in Dicofasta.keys():
 				listloc.append(Dicofasta[seq.rstrip()])
 			else :
-				print "Caution the",seq.rstrip(),"is not in the fasta file"
+				print("Caution the",seq.rstrip(),"is not in the fasta file")
 				
 		centroid[key]=Levenshtein.median(listloc)
 
@@ -146,19 +146,17 @@ def CalculateMedoid(Dicofasta,Dicoresult):
 def CalculateMedianDist(Dicocentroid):
 	Cluster_list=[]
 	Centroid_list=[]
-	dicoNeighbour={}	
+	dicoNeighbour={}
 	for cluster in Dicocentroid.keys():
 		Cluster_list.append(cluster)
-		
 		Centroid_list.append(Dicocentroid[cluster])
-	print "Creating neighnerhood dictionary ... \n"
+	print("Creating neighnerhood dictionary ... \n")
 	list__for_final_elem=[]
 	for i in tqdm.tqdm(range(len(Centroid_list)-1)) :
 	#for i in range(len(Centroid_list)-1):
-		#print i
+		#print(i)
 		listloc=[]
 		for j in range(i+1,len(Centroid_list)):
-			
 			listloc.append(Levenshtein.distance(Centroid_list[i],Centroid_list[j]))
 			
 			if j == len(Centroid_list)-1:
@@ -178,27 +176,25 @@ def CalculateMedianDist(Dicocentroid):
 # SILHOUETTE
 
 def silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour):
-	
 	summe=0
-	print "Calculating silhouette ... \n"
-	for cluster in tqdm.tqdm(Dicoresult.keys()) :
-	#for cluster in Dicoresult.keys():
+	print("Calculating silhouette ... \n")
+	for cluster in tqdm.tqdm(Dicoresult.keys()):
 		for seq in Dicoresult[cluster]:
 			ai=Levenshtein.distance(Dicofasta[seq],Dicocentroid[cluster])
 			bi=Levenshtein.distance(Dicofasta[seq],Dicocentroid[DicoNeighbour[cluster]])
 			summe+=calculeSil(ai,bi)
- 	return summe/float(len(Dicofasta))
+	return summe/float(len(Dicofasta))
 
 #####################################################################
 
 def calculeSil(ai,bi):
-    si=0
-    if ai!=bi:
-        if ai<bi:
-            si=1-(ai/float(bi))
-        else:
-            si=(float(bi)/ai)-1
-    return si
+	si=0
+	if ai!=bi:
+		if ai<bi:
+			si=1-(ai/float(bi))
+		else:
+			si=(float(bi)/ai)-1
+	return si
 
 
 ####################################################################
@@ -206,9 +202,9 @@ def main():
 	usage = "usage: Silhouette.py -f FastaFile -c ClusteringFile"
 	parser = OptionParser(usage)
 	parser.add_option("-f", "--FastaFile", dest="FastaFile",
-	      help="read data from FILENAME")
+		help="read data from FILENAME")
 	parser.add_option("-c", "--ClusteringFile",dest="ClusteringFile",
-	      help="read data from ClusteringFile")
+		help="read data from ClusteringFile")
 	(options, args) = parser.parse_args()
 	if len(sys.argv) != 5:
 		parser.error("incorrect number of arguments")
@@ -217,7 +213,7 @@ def main():
 	ClusteringFile = options.ClusteringFile
 	time_start = time.clock()
 	Dicofasta=readFastaMul(FastaFile)
-	#print Dicofasta
+	#print(Dicofasta)
 
 	Dicoresult=readClusteringResults(ClusteringFile)
 
@@ -229,11 +225,11 @@ def main():
 	DicoNeighbour= CalculateMedianDist(Dicocentroid)
 
 	sil=silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour)
-	print "Silhouette :", sil
+	print("Silhouette :", sil)
 
 	time_elapsed = (time.clock() - time_start)
 
-	print "Calculation time : ",time_elapsed
+	print("Calculation time : ",time_elapsed)
 
 #####################################################################
 if __name__ == "__main__":
