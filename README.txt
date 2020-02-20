@@ -15,3 +15,7 @@ python3 $F1 -p $RESULT -t $REF
 # affiche l'analyse de l'algorithme. Enfin, pour afficher la silhouette : 
 
 python3 $SILHOUETTE -f $DATA -c $RESULT
+
+# Pour afficher le temps d'execution de Louvain (pour le moment)
+
+python3 $TIME -p $DATA
