@@ -63,39 +63,27 @@ def read_num_liste_seq(filename): #renvoie un dictionnaire numéro de cluster : 
 def find_false_negative(trueC,myC):#cherche les séquences qui devraient être dans le même cluster et qui ne le sont pas
 	res_FN = []
 	res_TP = []
-	
-	nb = [0 for i in range(55)]
-	#print(trueC)
+	s = 0
 	for w in trueC.keys():
-		#print('Cluster numéro : ',w, len(trueC[w]))
 		temp = []
 		cmp = 0
 		for i in range(len(trueC[w])):
 			temp.append(myC[trueC[w][i]])
 			for j in range(i+1,len(trueC[w])):
+				s +=1
 				if myC[trueC[w][i]] != myC[trueC[w][j]]:
 					cmp +=1
-					#temp +=1
-					#print('nouvel ajout')
-					#if myC[trueC[w][i]] == 0 or myC[trueC[w][i]] == 0:
-						#print('clé dans le true_cluster : ', w, i,trueC[w][i],j,trueC[w][j])
-					if myC[trueC[w][i]] < myC[trueC[w][j]] :
-						nb[myC[trueC[w][i]]] +=1
-					if myC[trueC[w][j]] < myC[trueC[w][i]] :
-						nb[myC[trueC[w][j]]] +=1
-					
-					#print('dans le if')
 					res_FN.append((trueC[w][i],trueC[w][j]))
 				else:
 					res_TP.append((trueC[w][i],trueC[w][j]))
 		print(cmp,temp, '\n')
 	print('faux négatifs trouvé',len(res_FN))
 	print('vrai positifs trouvé',len(res_TP))
+	#print('nombre d\'itérations : ', s)
 	print('recall : ' ,len(res_TP)/(len(res_TP)+len(res_FN)))
-	#print(sum(nb[1:]) *2 + 956)
 	return (res_FN,res_TP)
-	
-#def find_true_positive(trueC,myC):
+
+
 	
 
 def main():
