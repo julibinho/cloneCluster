@@ -19,3 +19,7 @@ python3 $SILHOUETTE -f $DATA -c $RESULT
 # Pour afficher le temps d'execution de Louvain (pour le moment)
 
 python3 $TIME -p $DATA
+
+# Pour analyser le recall :
+
+python3 $RECALL -p $REF -r $RESULT

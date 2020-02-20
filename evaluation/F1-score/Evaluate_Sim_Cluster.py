@@ -65,11 +65,14 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 				print("erreur")
 			fp = len(arraySeqIds) - tp
 			tn = totalSeq -(tp+ fn +fp)
+			#print('on ajoute ',fn, ' nouveau faux positifs pour le cluster resultat n°: ', i)
+			#print(cluster[i])
 			sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
 			#print (tp, fp, fn)
 		
 	#print (sumTp, sumFp, sumFn, sumTn)
-	
+	print('\n\n\nfalse negative : ', sumFn, '\n\n\n')
+	print('\n\n\ntrue positive : ', sumTp, '\n\n\n')
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
 	spe = sumTn/float(sumTn + sumFp)
@@ -145,7 +148,9 @@ def main():
     Predicted_File = options.Predicted_clusters_File
     True_file = options.True_clusters_file
     cluster,totalSeq = readResultFile(Predicted_File)
+    #print("Cluster : \n\n\n\n\n",cluster,'\n\n\n\n\n\n\n typer cluster : \n\n', type(cluster),'\n\n\ntotalSeq\n\n\n', totalSeq)
     hashCluster , hashCluster_detail = readTrueClusterFile(True_file)
+    #print('\n\n\n\nhastCluster : \n\n\n', hashCluster,'\n\n\n\n\n\n\n\nhashcluster_detail\n\n\n\n\n\n\n\n',hashCluster_detail)
     evaluateMeasures(cluster, hashCluster, totalSeq, hashCluster_detail)
 
 #=============================================================================#
