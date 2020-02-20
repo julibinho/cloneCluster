@@ -70,9 +70,9 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 			sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
 			#print (tp, fp, fn)
 		
-	#print (sumTp, sumFp, sumFn, sumTn)
-	print('\n\n\nfalse negative : ', sumFn, '\n\n\n')
-	print('\n\n\ntrue positive : ', sumTp, '\n\n\n')
+	print ('nombres de paires classées : ',sumTp+ sumFp+ sumFn+ sumTn)
+	print('false negative : ', sumFn)
+	print('true positive : ', sumTp )
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
 	spe = sumTn/float(sumTn + sumFp)
