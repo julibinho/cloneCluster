@@ -7,7 +7,7 @@
 
 read -p 'Entez le type de donnée souhaitée parmi mono, oligo ou poly : ' type
 
-export DATA="data/artficial/Extracted_CDR3/$type""clonal_simp_indel_cdr3.fa"
+export DATA="$PWD/data/artficial/Extracted_CDR3/$type""clonal_simp_indel_cdr3.fa"
 #echo $DATA
 #echo DATA=data/artficial/Extracted_CDR3/oligoclonal_simp_indel_cdr3.fa 
 #echo $DATA

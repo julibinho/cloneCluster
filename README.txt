@@ -14,4 +14,4 @@ python3 $F1 -p $RESULT -t $REF
 
 # affiche l'analyse de l'algorithme. Enfin, pour afficher la silhouette : 
 
-python3 $SILHOUETTE -f $REF -c $RESULT
+python3 $SILHOUETTE -f $DATA -c $RESULT

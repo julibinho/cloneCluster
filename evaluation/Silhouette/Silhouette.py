@@ -21,7 +21,7 @@ from sklearn.cluster import AffinityPropagation
 
 #####################################################################
 def readFastaMul(nomFi):
-	"""read the fasta file of input sequences"""	
+	"""read the fasta file of input sequences"""
 	f=open(nomFi,"r")
 	lines=f.readlines()
 	f.close()
@@ -33,9 +33,12 @@ def readFastaMul(nomFi):
 		if l[0] == '>':
 			if seq != "":
 				lesSeq[nom] = seq
+				#print(l,nom,seq)
 			nom=l[1:-1]
+			#print("ensuite",nom)
 			seq=""
 		else:
+			#print("dans le else")
 			seq=seq+l[:-1]
 	if seq != "":
 
@@ -43,8 +46,8 @@ def readFastaMul(nomFi):
 
 	return lesSeq
 
-#####################################################################
 
+########################################################################
 # read the clustering result
 
 def readClusteringResults(nomFi):
@@ -213,7 +216,6 @@ def main():
 	ClusteringFile = options.ClusteringFile
 	time_start = time.clock()
 	Dicofasta=readFastaMul(FastaFile)
-	#print(Dicofasta)
 
 	Dicoresult=readClusteringResults(ClusteringFile)
 
