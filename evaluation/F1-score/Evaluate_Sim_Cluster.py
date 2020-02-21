@@ -8,11 +8,13 @@ This evaluation if for simulated sequences for which we know the real clusters.
 
 import sys
 from optparse import OptionParser
+from decimal import Decimal
 # =============================================================================
 #               evaluate Measures
 # =============================================================================		
 def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 	#print cluster
+	print totalSeq
 	#print hashCluster_detail,"hashCluster_detail"
 	count = 0; tp = 0; sumTp = 0.0; sumFp = 0.0; sumFn = 0.0; sumTtC = 0; tn = 0; sumTn = 0.0;
 	countSeq = 0
@@ -20,63 +22,52 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 	for i in cluster:
 		count +=1
 		if (count % 5000 == 0): print("Processed "), count
-		
 		arraySeqIds = cluster[i]
-		#print arraySeqIds,"arraySeqIds"
 		#find the majority label
 		hashAux = {}; tp = 0;
 		for j in arraySeqIds:
-			#print j,"jjjjjj"
-			#if int(j.rstrip()) in hashCluster_detail.keys():
 			countSeq += 1
 			if j.rstrip() in hashCluster_detail.keys():
 				IDmember = hashCluster_detail[j.rstrip()]
-				#print IDmember,"IDmember"
-
-				
 				if IDmember in hashAux.keys():
 					hashAux[IDmember] += 1
 				else:
 					hashAux[IDmember] = 1
 
-		maxValue = 0; maxLabel = ""
-		#print hashAux
-		if len(hashAux) != 0:
-			#print hashAux
-			for d in hashAux:
-				#print d,"d"
-				if hashAux[d] > maxValue:
-					maxValue = hashAux[d]
-					maxLabel = d
-			#print maxLabel,"maxLabel"
-			for j in arraySeqIds:
-				if j.rstrip()  in hashCluster_detail.keys():
-					IDmember = hashCluster_detail[j.rstrip()]
-					#print IDmember,"IDmember"
-					if IDmember !="" and IDmember == maxLabel:
-						tp +=1
+				maxValue = 0; maxLabel = ""
+				if len(hashAux) != 0:
+					#print hashAux
+					for d in hashAux:
+						#print d,"d"
+						if hashAux[d] > maxValue:
+							maxValue = hashAux[d]
+							maxLabel = d
+		for j in arraySeqIds:
+			if j.rstrip()  in hashCluster_detail.keys():
+				IDmember = hashCluster_detail[j.rstrip()]
+				#print IDmember,"IDmember"
+				if IDmember !="" and IDmember == maxLabel:
+					tp +=1
 
-			totalCluster = hashCluster[maxLabel]
+		totalCluster = hashCluster[maxLabel]
 
-			sumTtC += totalCluster
-			
-			fn = totalCluster - tp
-			if fn<0:
-				print("erreur")
-			fp = len(arraySeqIds) - tp
-			tn = totalSeq -(tp+ fn +fp)
-			#print('on ajoute ',fn, ' nouveau faux positifs pour le cluster resultat n°: ', i)
-			#print(cluster[i])
-			sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
-			#print (tp, fp, fn)
+		sumTtC += totalCluster
 		
-	print ('nombres de paires classées : ',sumTp+ sumFp+ sumFn+ sumTn)
-	print('false negative : ', sumFn)
-	print('true positive : ', sumTp )
+		fn = totalCluster - tp
+		if fn<0:
+			print("erreur")
+		fp = len(arraySeqIds) - tp
+		tn = totalSeq -(tp+ fn +fp)
+		sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
+
+		
+	#print ('nombres de paires classees : ',sumTp+ sumFp+ sumFn+ sumTn)
+	#print('false negative : ', sumFn)
+	#print('true positive : ', sumTp )
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
 	spe = sumTn/float(sumTn + sumFp)
-	print ("Pre = ", pre, "Rec = ", rec , "specificity = ",spe,"F-score = ", 2*pre*rec/(pre + rec), "NumCluster = ", count, "NumSeqs = ", countSeq, " sumTtC = ", sumTtC)
+	print ("Pre = ", round(pre,2), "Rec = ", round(rec,2) , "specificity = ",round(spe,2),"F-score = ", round(2*pre*rec/(pre + rec),2), "NumCluster = ", count, "NumSeqs = ", countSeq, " sumTtC = ", sumTtC)
 
 	
 # =============================================================================
@@ -98,16 +89,13 @@ def readResultFile(filename):
 			print ("Warnning:: Cluster ", IDcluster, " has no members")
 		else: 
 			#delet /n at the end of each line
-			arraySeqIds = members.split(" ")[:-1]
-			#print arraySeqIds
-			#print len(arraySeqIds)
-			#print arraySeqIds
+			arraySeqIds = members.split(" ")
+			if arraySeqIds[-1] == '\n':
+				arraySeqIds = members.split(" ")[:-1]
 			if len(arraySeqIds) != 0:
 				cluster[IDcluster] = arraySeqIds
-				#print totalSeq,len(arraySeqIds)
 				totalSeq += len(arraySeqIds)
 	file.close()
-	#print cluster,"cluster"
 	print ("Total clusters = ", count," Total sequences = " , totalSeq)
 	return  cluster,totalSeq
 	
