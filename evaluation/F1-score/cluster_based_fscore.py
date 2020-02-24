@@ -14,7 +14,6 @@ from decimal import Decimal
 # =============================================================================		
 def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 	#print cluster
-	print totalSeq
 	#print hashCluster_detail,"hashCluster_detail"
 	count = 0; tp = 0; sumTp = 0.0; sumFp = 0.0; sumFn = 0.0; sumTtC = 0; tn = 0; sumTn = 0.0;
 	countSeq = 0
@@ -43,7 +42,7 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 							maxValue = hashAux[d]
 							maxLabel = d
 		for j in arraySeqIds:
-			if j.rstrip()  in hashCluster_detail.keys():
+			if j.rstrip() in hashCluster_detail.keys():
 				IDmember = hashCluster_detail[j.rstrip()]
 				#print IDmember,"IDmember"
 				if IDmember !="" and IDmember == maxLabel:
@@ -52,18 +51,15 @@ def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
 		totalCluster = hashCluster[maxLabel]
 
 		sumTtC += totalCluster
-		
 		fn = totalCluster - tp
 		if fn<0:
 			print("erreur")
 		fp = len(arraySeqIds) - tp
 		tn = totalSeq -(tp+ fn +fp)
 		sumTp += tp; sumFp += fp; sumFn += fn; sumTn += tn;
-
-		
-	#print ('nombres de paires classees : ',sumTp+ sumFp+ sumFn+ sumTn)
-	#print('false negative : ', sumFn)
-	#print('true positive : ', sumTp )
+	print ('nombres de paires classees : ',sumTp+ sumFp+ sumFn+ sumTn)
+	print('false negative : ', sumFn)
+	print('true positive : ', sumTp )
 	pre = sumTp/float(sumTp+ sumFp);
 	rec = sumTp/float(sumTp+ sumFn);
 	spe = sumTn/float(sumTn + sumFp)
@@ -122,7 +118,7 @@ def readTrueClusterFile(filename):
 
 #=============================================================================#
 def main():
-    usage = "python  evaluateSimCluster.py -p <clustering output> -t <true cluster file>\n "
+    usage = "python  cluster_based_fscore.py -p <clustering output> -t <true cluster file>\n "
     parser = OptionParser(usage)
     parser.add_option("-p", "--Predicted_clusters_File", dest="Predicted_clusters_File",
           help="read clusters from Predicted_File")
