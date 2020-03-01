@@ -44,8 +44,6 @@ def main():
 	partitions = {}
 	for w in dico_des_graphes.keys():
 		partitions[w] = community.best_partition(dico_des_graphes[w])
-	
-	
 	result_output.generate_output_text(partitions,path_to_result) #permet de générer le fichier texte qui ensuite sert à comparer les résultats aux true clusters
 
 
