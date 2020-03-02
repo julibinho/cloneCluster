@@ -33,4 +33,10 @@ $python3 $TIME -p $DATA
 $python3 $GRAPH -r $RESULT -t $REF
 ```
 
+* Analysis of the false negatives :
+
+```diff
+python3 $ANALYSIS -p $RESULT -t $REF -d $DATA
+```
+
 
