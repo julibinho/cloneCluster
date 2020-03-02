@@ -19,7 +19,6 @@ import result_output
 def parse_arguments():
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-p","--path_to_file",help="""Chemin vers le fichier à utiliser""")
-	parser.add_argument("-s","--size",help="""Quel graphe de cluster souhaite-t-on afficher ?""")
 	parser.add_argument("-r","--result",help="""Ou doit-on ranger le résultat ?""")
 	return parser.parse_args()
 

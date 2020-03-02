@@ -26,3 +26,11 @@ $python3 $SILHOUETTE -f $DATA -c $RESULT
 ```diff
 $python3 $TIME -p $DATA
 ```
+
+* Plot the clusters :
+
+```diff
+$python3 $GRAPH -r $RESULT -t $REF
+```
+
+
