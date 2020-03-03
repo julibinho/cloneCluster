@@ -5,34 +5,30 @@
 #read -p 'Quel fichier souhaitez vous utiliser ? ' fichier
 #DATA="data/artficial/Extracted_CDR3/$fichier.fa"
 
-read -p 'Entrez le type de donnée souhaitée parmi mono, oligo ou poly : ' type
+read -p 'Entrez le type de donnée souhaitée parmi mono, oligo ou poly : ' Type
 read -p 'Entrez la longueur de séquences souhaitées parmi CDR3 ou Ent : ' long
 
 
 if [ "$long" = "CDR3" ]
 then
-    export DATA="$PWD/data/artficial/Extracted_CDR3/$type""clonal_simp_indel_cdr3.fa"
+    export DATA="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
+    export RESULT="$PWD/result/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.txt"
 fi
 
 if [ "$long" = "Ent" ]
 then
-    export DATA="$PWD/data/artficial/entireSeq/$type""clonal_simp_indel.fasta"
+    export DATA="$PWD/data/Artificial/EntireSeq/$Type""clonal_simp_indel.fa"
+    export RESULT="$PWD/result/Artificial/EntireSeq/$Type""clonal_simp_indel.txt"
 fi
 
+export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
 
-#export DATA="$PWD/data/artficial/Extracted_CDR3/$type""clonal_simp_indel_cdr3.fa"
-#export DATAENT="$PWD/data/artficial/entireSeq/$type""clonal_simp_indel.fasta"
-#echo $DATA
-#echo DATA=data/artficial/Extracted_CDR3/oligoclonal_simp_indel_cdr3.fa 
-#echo $DATA
+#Les algos : 
 export ALGO="$PWD/algoCluster/Louvain/clustering.py"
-export RESULT="$PWD/algoCluster/Louvain/results/res.txt"
-export REF="$PWD/data/artficial/True_clusters/$type""clonal_simp_indel_true_clusters.txt"
-export F1="$PWD/evaluation/F1-score/Evaluate_Sim_Cluster.py"
+export F1="$PWD/evaluation/F1-score/cluster_based_fscore.py"
 export SILHOUETTE="$PWD/evaluation/Silhouette/Silhouette.py"
 export TIME="$PWD/evaluation/Exec_time/Exec_time.py"
 export RECALL="$PWD/evaluation/Analysis-Recall/analysis-recall.py"
 export GRAPH="$PWD/evaluation/Visualisation/show-graph.py"
-export STOCKRES="$PWD/algoCluster/Louvain/results/$type""_$long""_21fev_res.txt"
 export ANALYSIS="$PWD/evaluation/Analysis-Recall/essai2.py"
 #export FASTAFILE="$PWD/data/artficial/True_clusters/$type""clonal_simp_indel_true_clusters.txt"

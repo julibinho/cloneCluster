@@ -121,9 +121,9 @@ def analysis(seq, TP, FN):
 			if len(seq[TP[i][0]][0]) == 32:
 				somme_same_size_32 += longueurs[len(seq[TP[i][0]][0])] 
 			somme_fn_same_size += longueurs[len(seq[TP[i][0]][0])] 
-		print('\nlongueur TP :', dict ,'\nlongueur FN :', longueurs)
+		#print('\nlongueur TP :', dict ,'\nlongueur FN :', longueurs)
 	print('\nfinalement, on trouve ', somme_fn_same_size, 'sequences mal classées alors qu\'elles ont la même taille que les tp, sur ', somme_fn, ' fn')
-	print('pour la taille 32 : ', somme_same_size_32)
+	#print('pour la taille 32 : ', somme_same_size_32)
 
 
 # =============================================================================
@@ -152,7 +152,7 @@ def readResultFile(filename):
 				cluster[IDcluster] = arraySeqIds
 				totalSeq += len(arraySeqIds)
 	file.close()
-	print ("Total clusters = ", count," Total sequences = " , totalSeq)
+	#print ("Total clusters = ", count," Total sequences = " , totalSeq)
 	return  cluster,totalSeq
 	
 # =============================================================================
@@ -200,7 +200,7 @@ def main():
     seq = readFasta(data_file)
     
     TP , FN = evaluateMeasures(cluster, hashCluster, totalSeq, hashCluster_detail, true_c)
-    print('\n\n\n ANALYSE \n\n')
+    print('\nAnalyse : ')
     analysis(seq, TP,FN)
 
 #=============================================================================#
