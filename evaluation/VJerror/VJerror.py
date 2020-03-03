@@ -42,6 +42,7 @@ def calculate_error(dico_cluster_VJ):
 			listloc.append(1)
 			listloc.append(1)
 	print("The VJ error is : ", 1-(sum(listloc) / float(len(listloc))))
+	return 1-(sum(listloc) / float(len(listloc)))
 
 
 #===================================================================================
