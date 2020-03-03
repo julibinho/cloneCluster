@@ -6,7 +6,6 @@ import sys
 pwd = os.getcwd()
 sys.path.append(pwd+'/utils') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
 
-
 import argparse
 import community ###### ALGO DE LOUVAIN #######
 #import affichage
@@ -22,15 +21,7 @@ def parse_arguments():
 	parser.add_argument("-r","--result",help="""Ou doit-on ranger le résultat ?""")
 	return parser.parse_args()
 
-def exec(path_to_file): #pour pouvoir mesurer le temps d'execution de tout l'algo
 
-	dico_des_graphes = graph_input.generate_graphs(path_to_file)
-	
-	partitions = {}
-	for w in dico_des_graphes.keys():
-		partitions[w] = community.best_partition(dico_des_graphes[w])
-	return partitions
-	
 
 def main():
 	args = parse_arguments()
