@@ -7,7 +7,7 @@ import sys
 #import tqdm
 import math
 import time
-import resource
+#import resource
 import Levenshtein
 import numpy as np
 import matplotlib.mlab as mlab

@@ -44,9 +44,9 @@ if REAL :
 		       'oligo': pwd+'/data/Real/Extracted_CDR3/P1_CDR3_oligo.fa',
 		       'poly' : pwd+'/data/Real/Extracted_CDR3/P4_CDR3_poly.fa'}
 	       
-	result_CDR3 = {'mono' : pwd+'/result/Real/Extracted_CDR3/P3_CDR3_mono.fa', 
-		       'oligo': pwd+'/result/Real/Extracted_CDR3/P1_CDR3_oligo.fa',
-		       'poly' : pwd+'/result/Real/Extracted_CDR3/P4_CDR3_poly.fa'}
+	result_CDR3 = {'mono' : pwd+'/result/Real/Extracted_CDR3/P3_CDR3_mono.txt', 
+		       'oligo': pwd+'/result/Real/Extracted_CDR3/P1_CDR3_oligo.txt',
+		       'poly' : pwd+'/result/Real/Extracted_CDR3/P4_CDR3_poly.txt'}
 
 ###########################################################################
 #training : 
@@ -75,7 +75,14 @@ data = ['mono']#,'oligo','poly']
 
 ##############################################################################
 
-
+def generate_one_graph(dico): # pour ne pas déborder la mémoire
+	for c, v in dico.items():
+		print('dans le for de generate one graph')
+		cle = c 
+		valeur = v
+		break
+	dico.pop(cle)
+	return instanciation_des_graphes_cle_valeur({cle : valeur})
 
 
 
@@ -89,14 +96,18 @@ def main():
 		
 		################ CDR3 ##########################
 		start_time = time.time()
-		dico_des_graphes = graph_input.generate_graphs(chemin_CDR3[type_seq])
-		print('le graphe des séquence pour les CDR3 des données de ', type_seq,' est construit, l\'algo commence à réunir les clusters')
+		dico = graph_input.tri_cle_valeur(chemin_CDR3[type_seq]) # dico {longueur : {nom:seq}}
 		partition = {}
-		for w in dico_des_graphes.keys():
-			partition[w] = community.best_partition(dico_des_graphes[w])
+		for cle, valeur in dico.items():
+			print('séquences CDR3 de longueur : ', cle)
+			graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
+			partition[cle]=community.best_partition(graphe[cle])
 		result_output.generate_output_text(partition, result_CDR3[type_seq])
 		exec_time = time.time() - start_time
-		 ################ Silhouette ######################
+
+		
+		 	################ Silhouette ######################
+		print('calcul de la silhouette')
 		FastaFile = chemin_CDR3[type_seq]
 		ClusteringFile = result_CDR3[type_seq]
 		Dicofasta=sil.readFastaMul(FastaFile)
@@ -107,25 +118,28 @@ def main():
 
 		res_sil=sil.silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour)
 		
-		##################### VJerror #######################"
+			##################### VJerror #######################"
 		if REAL :
-			VJ_file = cheminVJ[type_seq]
+			VJ_file = chemin_VJ[type_seq]
 			tool_output = result_CDR3[type_seq]
 			VJ_lines = vj.read_output_file(VJ_file)
 			VJ_dico = vj.dico_VJ_format(VJ_lines)
 			cluster_lines = vj.read_output_file(tool_output)
 			dico_cluster_VJ = vj.creat_dico_cluster_VJ (VJ_dico, cluster_lines)
 			VJ_er = vj.calculate_error(dico_cluster_VJ)
+			name = 'result Real ' + time.asctime() + '.md'
 		else :
 			VJ_er = 0.98
+			name = 'result Artificial ' + time.asctime() + '.md'
 		
 		
 		
 		text_markdown += '| CDR3 | %.5s | ' % exec_time +  ' %.5s | ' % res_sil + ' %.9s' %VJ_er +' | %s |\n' % nb_cluster
-	with open(pwd + '/algoCluster/Test_Bench/resultat.md', "w") as fichier:
+	
+	with open(pwd + '/algoCluster/Test_Bench/' + name, "w") as fichier:
 		fichier.write(text_markdown)
 	fichier.close()
-		
+	print('fini')
 		
  
 

@@ -20,7 +20,7 @@ def creat_dico_cluster_VJ (dico_VJ ,cluster_lines) :
 	for l in range(0,len(cluster_lines)):
 		split=cluster_lines[l].split("\t")
 		dico_cluster_VJ[split[0]] = [[],[]] # V list and J list 
-		for seq in split[1].split(" ") :
+		for seq in split[1].split() :
 			dico_cluster_VJ[split[0]][0].append(dico_VJ[seq.rstrip()][0].rstrip())
 			dico_cluster_VJ[split[0]][1].append(dico_VJ[seq.rstrip()][1].rstrip())
 	return dico_cluster_VJ
