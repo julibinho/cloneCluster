@@ -22,7 +22,7 @@ import result_output
 import Silhouette as sil
 import VJerror as vj
 
-REAL = False
+REAL = True
 
 if REAL :
 
@@ -71,7 +71,7 @@ else :
 		       'poly' : pwd+'/result/Artificial/Extracted_CDR3/polyclonal_simp_indel_cdr3.txt'}
 
 	       
-data = ['mono']#,'oligo','poly']	       
+data = ['poly']#,'oligo','poly']	       
 
 ##############################################################################
 
@@ -92,7 +92,7 @@ def main():
 		text_markdown += '# Résultat avec les données réelles\n'
 	
 	for type_seq in data:
-		text_markdown += '## Patient ' + type_seq + 'clonal\n' + '| Type of sequences | Time | Silhouette | VJerror | # of clusters | \n | :----------------: | :-----------------: | :----------: | :-------: | :---------------------------: |\n'
+		text_markdown += '## Patient ' + type_seq + 'clonal\n' + '| Type of sequences | Time (s) | Silhouette | VJerror | # of clusters | \n | :----------------: | :-----------------: | :----------: | :-------: | :---------------------------: |\n'
 		
 		################ CDR3 ##########################
 		start_time = time.time()
