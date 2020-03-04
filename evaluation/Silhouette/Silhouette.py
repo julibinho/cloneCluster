@@ -4,7 +4,7 @@ Evaluating the quality of any clustering tool even on sequences that we dont kno
 #Have to install optparse and tqdm
 
 import sys
-import tqdm
+#import tqdm
 import math
 import time
 import resource
@@ -134,7 +134,8 @@ def Plot(Clustering_lables,FastaFile):
 def CalculateMedoid(Dicofasta,Dicoresult):
 	centroid={}
 	print("Calculating Medoid sequence of each cluster ... \n")
-	for key in tqdm.tqdm(Dicoresult.keys()) :
+	#for key in tqdm.tqdm(Dicoresult.keys()) :
+	for key in Dicoresult.keys() :
 		listloc=[]
 		for seq in Dicoresult[key]:
 			if seq.rstrip() in Dicofasta.keys():
@@ -155,7 +156,8 @@ def CalculateMedianDist(Dicocentroid):
 		Centroid_list.append(Dicocentroid[cluster])
 	print("Creating neighnerhood dictionary ... \n")
 	list__for_final_elem=[]
-	for i in tqdm.tqdm(range(len(Centroid_list)-1)) :
+	#for i in tqdm.tqdm(range(len(Centroid_list)-1)) :
+	for i in range(len(Centroid_list)-1) :
 	#for i in range(len(Centroid_list)-1):
 		#print(i)
 		listloc=[]
@@ -181,7 +183,8 @@ def CalculateMedianDist(Dicocentroid):
 def silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour):
 	summe=0
 	print("Calculating silhouette ... \n")
-	for cluster in tqdm.tqdm(Dicoresult.keys()):
+	#for cluster in tqdm.tqdm(Dicoresult.keys()):
+	for cluster in Dicoresult.keys():
 		for seq in Dicoresult[cluster]:
 			ai=Levenshtein.distance(Dicofasta[seq],Dicocentroid[cluster])
 			bi=Levenshtein.distance(Dicofasta[seq],Dicocentroid[DicoNeighbour[cluster]])
