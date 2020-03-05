@@ -22,7 +22,7 @@ import result_output
 import Silhouette as sil
 import VJerror as vj
 
-REAL = True
+REAL = False
 
 if REAL :
 
@@ -136,7 +136,7 @@ def main():
 		
 		text_markdown += '| CDR3 | %.5s | ' % exec_time +  ' %.5s | ' % res_sil + ' %.9s' %VJ_er +' | %s |\n' % nb_cluster
 	
-	with open(pwd + '/algoCluster/Test_Bench/' + name, "w") as fichier:
+	with open(pwd + '/algoCluster/Test_Bench/result_markdown/' + name, "w") as fichier:
 		fichier.write(text_markdown)
 	fichier.close()
 	print('fini')
