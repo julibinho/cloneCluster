@@ -127,10 +127,10 @@ def main():
 			cluster_lines = vj.read_output_file(tool_output)
 			dico_cluster_VJ = vj.creat_dico_cluster_VJ (VJ_dico, cluster_lines)
 			VJ_er = vj.calculate_error(dico_cluster_VJ)
-			name = 'result Real ' + time.asctime() + '.md'
+			name = 'result_Real_' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
 		else :
 			VJ_er = 0.98
-			name = 'result Artificial ' + time.asctime() + '.md'
+			name = 'result_Artificial_' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
 		
 		
 		
