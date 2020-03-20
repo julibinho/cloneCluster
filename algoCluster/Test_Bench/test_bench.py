@@ -22,7 +22,7 @@ import result_output
 import Silhouette as sil
 import VJerror as vj
 
-REAL = False
+REAL = True
 
 if REAL :
 
@@ -71,18 +71,9 @@ else :
 		       'poly' : pwd+'/result/Artificial/Extracted_CDR3/polyclonal_simp_indel_cdr3.txt'}
 
 	       
-data = ['poly']#,'oligo','poly']	       
+data = ['mono']#,'oligo','poly']	       
 
 ##############################################################################
-
-def generate_one_graph(dico): # pour ne pas déborder la mémoire
-	for c, v in dico.items():
-		print('dans le for de generate one graph')
-		cle = c 
-		valeur = v
-		break
-	dico.pop(cle)
-	return instanciation_des_graphes_cle_valeur({cle : valeur})
 
 
 
@@ -100,6 +91,7 @@ def main():
 		partition = {}
 		for cle, valeur in dico.items():
 			print('séquences CDR3 de longueur : ', cle)
+			#print(valeur)
 			graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
 			partition[cle]=community.best_partition(graphe[cle])
 		result_output.generate_output_text(partition, result_CDR3[type_seq])
@@ -127,7 +119,7 @@ def main():
 			cluster_lines = vj.read_output_file(tool_output)
 			dico_cluster_VJ = vj.creat_dico_cluster_VJ (VJ_dico, cluster_lines)
 			VJ_er = vj.calculate_error(dico_cluster_VJ)
-			name = 'result_Real_' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
+			name = 'result_Real' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
 		else :
 			VJ_er = 0.98
 			name = 'result_Artificial_' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
