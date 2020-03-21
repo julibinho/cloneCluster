@@ -22,7 +22,7 @@ import result_output
 import Silhouette as sil
 import VJerror as vj
 
-REAL = True
+REAL = False
 
 if REAL :
 
@@ -51,9 +51,9 @@ if REAL :
 ###########################################################################
 #training : 
 else : 
-	chemin_EntireSeq = {'mono' : pwd+'data/Artificial/EntireSeq/monoclonal_simp_indel.fa', 
-			    'oligo': pwd+'data/Artificial/EntireSeq/oligoclonal_simp_indel.fa',
-			    'poly' : pwd+'data/Artificial/EntireSeq/polyclonal_simp_indel.fa'}
+	chemin_EntireSeq = {'mono' : pwd+'/data/Artificial/EntireSeq/monoclonal_simp_indel.fa', 
+			    'oligo': pwd+'/data/Artificial/EntireSeq/oligoclonal_simp_indel.fa',
+			    'poly' : pwd+'/data/Artificial/EntireSeq/polyclonal_simp_indel.fa'}
 		    
 	result_EntireSeq = {'mono' : pwd+'/result/Artificial/EntireSeq/monoclonal_simp_indel.txt', 
 			    'oligo': pwd+'/result/Artificial/EntireSeq/oligoclonal_simp_indel.txt',
@@ -132,10 +132,45 @@ def main():
 		fichier.write(text_markdown)
 	fichier.close()
 	print('fini')
-		
+
+
+def test_creation_matrices_vs_networkx():
+	data = ['mono', 'oligo','poly']
+	
+	print('test de création des matrices de distances pour les séquences CDR3\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_CDR3[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        matrice = graph_input.matrix(valeur)
+	        print('la matrice pour la taille : ', cle, ' est construite')
+	print('test de création des matrices de distances pour les séquences entières\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_EntireSeq[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        matrice = graph_input.matrix(valeur)
+	        print('la matrice pour la taille : ', cle, ' est construite')       
+	        
+	
+	print('test de création des graphes network x pour les séqences CDR3\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_CDR3[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
+	        print('le graphe pour la taille : ', cle, ' est construit')
+	        
+	print('test de création des graphes network x pour les séqences entières\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_EntireSeq[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
+	        print('le graphe pour la taille : ', cle, ' est construit')
+
+
  
 
 if __name__ == "__main__":
 	main()
-
-
