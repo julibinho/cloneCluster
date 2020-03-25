@@ -120,10 +120,10 @@ def generate_output_text_SC(dico,path): #rassemble toutes les partitions
         for w in dico.keys() :
             for i in dico[w].values():
                 fichier.write(str(count))
-                fichier.write("   ")
+                fichier.write("\t")
                 for j in i:
-                    fichier.write(" ")
                     fichier.write(j)
+                    fichier.write(" ")
                 count+=1
                 fichier.write("\n")
         fichier.close()
