@@ -19,6 +19,47 @@ pwd = os.getcwd()
 sys.path.append(pwd+'/tool') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
 import argparse
 
+
+
+def distance_Hamming(seq1, seq2):
+    distance=0
+    for i in range (len(seq1)):
+        if seq1[i]==seq2[i]: ## j'ai modifié la distance de Hamming ici, pour que les séquences identiques soient plus liées entre elles que les séquences différentes
+            distance +=1
+    return(distance)
+
+#======================================================================
+def matrice_adjacence_Hamming(seqs):
+    n = len(seqs)
+    M=np.zeros((n,n))
+    for i in range (n):
+        for j in range (i+1 ,n):
+                d= distance_Hamming(seqs[i], seqs[j])
+                M[i][j] = d
+                M[j][i] = d #les matrices sont symétriques
+    return(M)
+#===========================================================
+def tri_cle_valeur(path_to_file):
+	dico = {}
+	count = 0
+	with open(path_to_file, "r") as fasta_file:
+		for line in fasta_file:
+			if line.startswith(">"):
+				count += 1
+				name = line.strip()[1:]
+			else:
+				seq = line.strip()
+				if len(seq) not in dico :
+					dico[len(seq)] = {name : seq}
+				else :
+					dico[len(seq)][name] = seq
+	#print(dico)
+	countbis = 0
+	for w in dico.keys():
+		countbis += len(dico[w])
+	#print('dans tri : ' , count == countbis, count)
+	return dico
+#=======================================================
 def initialisation(M):
     S=matrice_adjacence_Hamming(M)
     d=[]

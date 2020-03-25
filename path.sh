@@ -5,37 +5,31 @@
 #read -p 'Quel fichier souhaitez vous utiliser ? ' fichier
 #DATA="data/artficial/Extracted_CDR3/$fichier.fa"
 
-read -p 'Entrer l algorithme que vous souhaitez utiliser parmis Louvain ou SpectralClustering: 'algo 
+read -p 'Entrez l algorithme que vous souhaitez utiliser parmis Louvain ou SpectralClustering : ' algo 
 read -p 'Entrez le type de donnée souhaitée parmi mono, oligo ou poly : ' Type
 read -p 'Entrez la longueur de séquences souhaitées parmi CDR3 ou Ent : ' long
 
 
-if ["$algo" = "Louvain"] and ["$long" = "CDR3"]
-then
-	export ALGO="$PWDW/algoCluster/$algo/LouvainClustering.py"
-	export  DATA="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.fa"
-fi
-
-if ["algo"="Louvain"] and ["$long" = "Ent"]
+if [ "$algo" = "Louvain" ]
 then
 	export ALGO="$PWD/algoCluster/$algo/LouvainClustering.py"
+	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.txt"
+fi
+
+if [ "$algo" = "SpectralClustering" ]
+then
+        export ALGO="$PWD/algoCluster/$algo/SpectralClustering.py"
+	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.txt"
+fi
+
+if [ "$long" = "Ent" ]
+then
 	export DATA="$PWD/data/Artificial/EntireSeq/$Type""clonal_simp_indel_cdr3.fa"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.fa"
 fi
 
-if ["algo"="Spectral"] and ["$long"="CDR3"]
+if [ "$long" = "CDR3" ]
 then
-	export ALGO="$PWD/algoCluster/$algo/SpectralClustering.py"
 	export DATA="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.fa"
-fi
-
-if ["algo"="Spectral"] and ["$long"="Ent"]
-then
-	export ALGO="$PWD/algoCluster/$algo/SpectralClustering.py"
-	export DATA="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.fa"
 fi
 
 export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"

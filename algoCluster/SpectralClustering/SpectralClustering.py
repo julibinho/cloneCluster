@@ -35,8 +35,8 @@ def parse_arguments():
 #############################s##############################
 def main():
     args = parse_arguments()
-	path_to_file = args.path_to_file
-	path_to_result = args.result
+    path_to_file = args.path_to_file
+    path_to_result = args.result
     
     dico_sequences_in= SpectralClusteringTools.tri_cle_valeur(path_to_file)
     dico_partitions_out={}
