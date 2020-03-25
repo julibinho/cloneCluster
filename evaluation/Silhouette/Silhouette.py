@@ -217,7 +217,7 @@ def main():
 	
 	FastaFile = options.FastaFile
 	ClusteringFile = options.ClusteringFile
-	time_start = time.clock()
+	time_start = time.process_time()
 	Dicofasta=readFastaMul(FastaFile)
 
 	Dicoresult=readClusteringResults(ClusteringFile)
@@ -232,7 +232,7 @@ def main():
 	sil=silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour)
 	print("Silhouette :", sil)
 
-	time_elapsed = (time.clock() - time_start)
+	time_elapsed = (time.process_time() - time_start)
 
 	print("Calculation time : ",time_elapsed)
 
