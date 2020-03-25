@@ -12,7 +12,7 @@ from decimal import Decimal
 # =============================================================================
 #               evaluate Measures
 # =============================================================================		
-def evaluateMeasures(cluster, hashCluster, totalSeq , hashCluster_detail):
+def evaluateMeasures( cluster, hashCluster, totalSeq , hashCluster_detail) :
 	#print cluster
 	#print hashCluster_detail,"hashCluster_detail"
 	count = 0; tp = 0; sumTp = 0.0; sumFp = 0.0; sumFn = 0.0; sumTtC = 0; tn = 0; sumTn = 0.0;

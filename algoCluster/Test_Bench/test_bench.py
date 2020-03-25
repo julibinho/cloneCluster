@@ -22,7 +22,7 @@ import result_output
 import Silhouette as sil
 import VJerror as vj
 
-REAL = True
+REAL = False
 
 if REAL :
 
@@ -51,9 +51,9 @@ if REAL :
 ###########################################################################
 #training : 
 else : 
-	chemin_EntireSeq = {'mono' : pwd+'data/Artificial/EntireSeq/monoclonal_simp_indel.fa', 
-			    'oligo': pwd+'data/Artificial/EntireSeq/oligoclonal_simp_indel.fa',
-			    'poly' : pwd+'data/Artificial/EntireSeq/polyclonal_simp_indel.fa'}
+	chemin_EntireSeq = {'mono' : pwd+'/data/Artificial/EntireSeq/monoclonal_simp_indel.fa', 
+			    'oligo': pwd+'/data/Artificial/EntireSeq/oligoclonal_simp_indel.fa',
+			    'poly' : pwd+'/data/Artificial/EntireSeq/polyclonal_simp_indel.fa'}
 		    
 	result_EntireSeq = {'mono' : pwd+'/result/Artificial/EntireSeq/monoclonal_simp_indel.txt', 
 			    'oligo': pwd+'/result/Artificial/EntireSeq/oligoclonal_simp_indel.txt',
@@ -71,18 +71,9 @@ else :
 		       'poly' : pwd+'/result/Artificial/Extracted_CDR3/polyclonal_simp_indel_cdr3.txt'}
 
 	       
-data = ['poly']#,'oligo','poly']	       
+data = ['mono']#,'oligo','poly']	       
 
 ##############################################################################
-
-def generate_one_graph(dico): # pour ne pas déborder la mémoire
-	for c, v in dico.items():
-		print('dans le for de generate one graph')
-		cle = c 
-		valeur = v
-		break
-	dico.pop(cle)
-	return instanciation_des_graphes_cle_valeur({cle : valeur})
 
 
 
@@ -100,6 +91,7 @@ def main():
 		partition = {}
 		for cle, valeur in dico.items():
 			print('séquences CDR3 de longueur : ', cle)
+			#print(valeur)
 			graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
 			partition[cle]=community.best_partition(graphe[cle])
 		result_output.generate_output_text(partition, result_CDR3[type_seq])
@@ -127,23 +119,58 @@ def main():
 			cluster_lines = vj.read_output_file(tool_output)
 			dico_cluster_VJ = vj.creat_dico_cluster_VJ (VJ_dico, cluster_lines)
 			VJ_er = vj.calculate_error(dico_cluster_VJ)
-			name = 'result Real ' + time.asctime() + '.md'
+			name = 'result_Real' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
 		else :
 			VJ_er = 0.98
-			name = 'result Artificial ' + time.asctime() + '.md'
+			name = 'result_Artificial_' + time.strftime("%d_%m_%Y__%Hh_%Mmin_%Ssec") + '.md'
 		
 		
 		
 		text_markdown += '| CDR3 | %.5s | ' % exec_time +  ' %.5s | ' % res_sil + ' %.9s' %VJ_er +' | %s |\n' % nb_cluster
 	
-	with open(pwd + '/algoCluster/Test_Bench/' + name, "w") as fichier:
+	with open(pwd + '/algoCluster/Test_Bench/result_markdown/' + name, "w") as fichier:
 		fichier.write(text_markdown)
 	fichier.close()
 	print('fini')
-		
+
+
+def test_creation_matrices_vs_networkx():
+	data = ['mono', 'oligo','poly']
+	
+	print('test de création des matrices de distances pour les séquences CDR3\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_CDR3[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        matrice = graph_input.matrix(valeur)
+	        print('la matrice pour la taille : ', cle, ' est construite')
+	print('test de création des matrices de distances pour les séquences entières\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_EntireSeq[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        matrice = graph_input.matrix(valeur)
+	        print('la matrice pour la taille : ', cle, ' est construite')       
+	        
+	
+	print('test de création des graphes network x pour les séqences CDR3\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_CDR3[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
+	        print('le graphe pour la taille : ', cle, ' est construit')
+	        
+	print('test de création des graphes network x pour les séqences entières\n')
+	for type_seq in data:
+	    dico = graph_input.tri_cle_valeur(chemin_EntireSeq[type_seq])
+	    for cle, valeur in dico.items():
+	    
+	        graphe = graph_input.instanciation_des_graphes_cle_valeur({cle:valeur})
+	        print('le graphe pour la taille : ', cle, ' est construit')
+
+
  
 
 if __name__ == "__main__":
 	main()
-
-
