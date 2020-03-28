@@ -7,19 +7,18 @@
 
 read -p 'Entrez l algorithme que vous souhaitez utiliser parmis Louvain ou SpectralClustering : ' algo 
 read -p 'Entrez le type de donnée souhaitée parmi mono, oligo ou poly : ' Type
-read -p 'Entrez la longueur de séquences souhaitées parmi CDR3 ou Ent : ' long
+read -p 'Entrez la longueur de séquences souhaitées parmi CDR3 ou EntireSeq : ' long
+read -p 'Entrez la caractéristique des données souhaitées parmi Artificial ou Real : ' caract
 
 
 if [ "$algo" = "Louvain" ]
 then
 	export ALGO="$PWD/algoCluster/$algo/LouvainClustering.py"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.txt"
 fi
 
 if [ "$algo" = "SpectralClustering" ]
 then
-        export ALGO="$PWD/algoCluster/$algo/SpectralClustering.py"
-	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.txt"
+    export ALGO="$PWD/algoCluster/$algo/SpectralClustering.py"
 fi
 
 if [ "$long" = "Ent" ]
@@ -35,6 +34,7 @@ fi
 export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
 
 #Les algos : 
+export RESULT="$PWD/result/$caract/$algo/$long/$Type""clonal_simp_indel_cdr3.txt"
 export F1="$PWD/evaluation/F1-score/cluster_based_fscore.py"
 export SILHOUETTE="$PWD/evaluation/Silhouette/Silhouette.py"
 export TIME="$PWD/evaluation/Exec_time/Exec_time.py"

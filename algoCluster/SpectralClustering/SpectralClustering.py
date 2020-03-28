@@ -4,22 +4,18 @@ Created on Wed Mar 25 11:33:30 2020
 
 @author: quent
 """
-
-from networkx import *
-import networkx as nx
 import matplotlib.pyplot as plt
 import math as math
 import numpy as np
-import networkx as nx
 import copy
 from sklearn.metrics import pairwise_distances_argmin
 import os
 import sys
-import networkx as nx
 pwd = os.getcwd()
 sys.path.append(pwd+'/tool') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
 import argparse
 import SpectralClusteringTools
+import graph_input
 
 ##############################################################
 #   Début du code 
@@ -38,7 +34,7 @@ def main():
     path_to_file = args.path_to_file
     path_to_result = args.result
     
-    dico_sequences_in= SpectralClusteringTools.tri_cle_valeur(path_to_file)
+    dico_sequences_in= graph_input.tri_cle_valeur(path_to_file)
     dico_partitions_out={}
     numero_cluster=0#Pour la construction des clé du dictionnaire outpout
     K_cluster=0 #Nombre de cluster souhaités en fonction du nombre de séquences pour chaque longueur
