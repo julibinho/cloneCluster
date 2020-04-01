@@ -27,11 +27,10 @@ def initialisation(M):
 #==========================================================
 def normalize(S,D):
     D=np.array(D)
-    D=D**(-1/2)
     for i in range (len(D)):
         for j in range (len(D)):
-            if D[i][j]==math.inf:
-                D[i][j]=0
+            if D[i][j]!=0:
+                D[i][j]=(D[i][j])**(-1/2)
     S=np.array(S)
     SD=np.dot(S,D)
     result=np.dot(D,SD)
@@ -39,8 +38,10 @@ def normalize(S,D):
 #===========================================================
 def eigen(M):
     vals,vect=np.linalg.eig(M)
-    vals=np.array(vals,dtype=np.float)
-    vect=np.array(vect,dtype=np.float)
+    vals=np.real(vals)
+    vect=np.real(vect)
+    vals=np.array(vals)
+    vect=np.array(vect)
     return(vals,vect)
 #===========================================================
 def renormalize(U):
