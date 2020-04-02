@@ -22,6 +22,9 @@ then
 	export RESULT="$PWD/algoCluster/$algo/results/$Type""clonal_simp_indel_cdr3.txt"
 fi
 
+
+
+
 if [ "$long" = "Ent" ]
 then
 	export DATA="$PWD/data/Artificial/EntireSeq/$Type""clonal_simp_indel_cdr3.fa"
@@ -32,9 +35,9 @@ then
 	export DATA="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
 fi
 
-export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
 
-#Les algos : 
+
+
 export F1="$PWD/evaluation/F1-score/cluster_based_fscore.py"
 export SILHOUETTE="$PWD/evaluation/Silhouette/Silhouette.py"
 export TIME="$PWD/evaluation/Exec_time/Exec_time.py"
@@ -42,4 +45,5 @@ export RECALL="$PWD/evaluation/Analysis-Recall/analysis-recall.py"
 export GRAPH="$PWD/evaluation/Visualisation/show-graph.py"
 export ANALYSIS="$PWD/evaluation/Analysis-Recall/essai2.py"
 export TESTBENCH="$PWD/algoCluster/Test_Bench/test_bench.py"
-#export FASTAFILE="$PWD/data/artficial/True_clusters/$type""clonal_simp_indel_true_clusters.txt"
+export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
+export RESIMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$Type""_simp_indel_imgt_Fo.txt"
