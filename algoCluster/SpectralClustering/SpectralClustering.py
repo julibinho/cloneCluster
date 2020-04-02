@@ -39,14 +39,13 @@ def main():
     numero_cluster=0#Pour la construction des clé du dictionnaire outpout
     K_cluster=0 #Nombre de cluster souhaités en fonction du nombre de séquences pour chaque longueur
     for longueur in dico_sequences_in.keys():#Parcours du dico des séquences par les différentes clés = longueur de séquence
-        if len(dico_sequences_in[longueur])>=100:#Si plus de 100 seq : on fait 50 clusters
-            K_cluster=50
-        elif 10>len(dico_sequences_in[longueur])>100:#Si entre 10 et 100 seq : on fait 10 clusters
-            K_cluster=10
-        elif 1<len(dico_sequences_in[longueur])<= 5:#Si 5 seq ou moins : on fait 2 clusters
-            K_cluster=2
-        else:
-            K_cluster=1 #if len(dico_sequences_in[longueur])>1: #Faire si il y a plus d'un séquence dans la taille concernée.
+        #print(len(dico_sequences_in[longueur]))
+        K_cluster=int(math.log(len(dico_sequences_in[longueur]),2))
+        if K_cluster < 1:
+            K_cluster = 1
+        if longueur == 50 :
+            K_cluster = 4
+        #print(K_cluster)
         L,nb_sequences,Centres,Cluster=SpectralClusteringTools.principale(longueur,K_cluster,dico_sequences_in)
         keys=[]
         for nom_seq in dico_sequences_in[longueur].keys(): #Parcours des différents noms de séquences appartenant à la longueur k en cours

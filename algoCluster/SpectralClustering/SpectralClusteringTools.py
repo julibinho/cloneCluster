@@ -5,6 +5,8 @@ Created on Wed Mar 25 11:21:19 2020
 @author: quent
 """
 import matplotlib.pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import kneighbors_graph
 import math as math
 import numpy as np
 import copy
@@ -39,6 +41,7 @@ def normalize(S,D):
 def eigen(M):
     vals,vect=np.linalg.eig(M)
     vals=np.real(vals)
+    vals=np.sort(vals) #On trie de manière croissante les valeurs propres obtenues
     vect=np.real(vect)
     vals=np.array(vals)
     vect=np.array(vect)
@@ -86,6 +89,10 @@ def generate_output_text_SC(dico,path): #rassemble toutes les partitions
         fichier.close()
         pass
 #==================================================================
+def k_nearest(D):
+    graph=kneighbors_graph(D,3)
+    return(graph)
+#============================================================
 def principale (L,nb_cluster,dico): #retourne les clusters pour une longueur L de séquence souhaitée
     sequences=[]
     for p in dico[L].keys():
@@ -95,9 +102,17 @@ def principale (L,nb_cluster,dico): #retourne les clusters pour une longueur L d
     Adj,Diag=initialisation(sequences)
     Laplacian=normalize(Adj,Diag)
     Vals,Vect=eigen(Laplacian)
+    Y=[]
+    for i in range (len(Vals)-1):
+        Y.append(i)
+    #if L==74:
+        #plt.scatter(Y,Vals[0:len(Vals)-1])
+        #plt.show()
     renorm=renormalize(Vect)
+    #print(Vals)
     Centres,Cluster=find_clusters(renorm,nb_cluster)
     return(L,nb_sequences,Centres,Cluster)
+    
     
 def main():
     pass
