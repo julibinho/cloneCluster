@@ -22,9 +22,9 @@ then
 fi
 
 
-
-if [ "$caract" = "Artificial"]
+if [ "$caract" = "Artificial" ]
 then
+
     if [ "$long" = "Ent" ]
     then
 	    export DATA="$PWD/data/$caract/EntireSeq/$Type""clonal_simp_indel.fa"
@@ -33,12 +33,12 @@ then
 
     if [ "$long" = "CDR3" ]
     then
-	    export DATA="$PWD/data/$Caract/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
-	    export RESULT="$PWD/result/$caract/$algo/CDR3/$Type""clonal_simp_indel_cdr3.txt"
+	    export DATA="$PWD/data/$caract""/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
+	    export RESULT="$PWD/result/$caract""/$algo/CDR3/$Type""clonal_simp_indel_cdr3.txt"
     fi
 fi
 
-if [ "$caract" = "Real"]
+if [ "$caract" = "Real" ]
 then
     if [ "$long" = "Ent" ]
     then
