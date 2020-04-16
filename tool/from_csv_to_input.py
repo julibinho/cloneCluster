@@ -35,7 +35,7 @@ def make_true_cluster(true_cluster_path, dico):
     output.close()
 
 def main():
-    reading_csv_from_immuneSIM("première_sim_avec_immuneSIM.csv", "test_csv_to_fasta.fa", "test_true_cluster.txt")
+    reading_csv_from_immuneSIM("essai_csv.csv", "test_csv_fasta.fa", "test_true_cluster.txt")
 
 
 if __name__ == "__main__":
