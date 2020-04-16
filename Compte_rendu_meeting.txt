@@ -1,7 +1,15 @@
 25 Mars :
-
 A faire : 
   Trouver une heuristique pour le spectral clustering
   Faire de la biblio sur les méthodes de merging
   (Nika) Regarder le détail de la simulation
   Utiliser les fichiers de sortie de Fair et tenter d'améliorer les scores avec Louvain sur les séquences consensus.
+
+16 Avril :
+  A faire :
+    Réorganisation du Git
+    Nika : trouver comment utiliser les paramètres de immuneSIM
+    Quentin : Regarder le fonctionnement de MMseq2
+    Lisa : rendre utilisable l'algo de Merging pour avoir des résultats
+    Quentin et Lisa : Commencer à rédiger le rapport
+  Prochaine réunion : Mardi 21 Avril avec Nika pour discuter de immuneSIM
