@@ -3,7 +3,7 @@
 To run the code from this file, use  :
 
 ```diff
-$. ./path.sh
+$. ./settingPath.sh
 $python3 $ALGO -p $DATA -r $RESULT 
 ```
 

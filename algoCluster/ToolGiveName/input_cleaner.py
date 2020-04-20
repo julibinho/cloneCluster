@@ -54,11 +54,12 @@ def cleaner(seq,clusters): # retourne une partition avec uniquement les séquenc
         count +=1 
     return {0:partition} #artifice pour avoir le même format que Louvain, et utiliser les algo de sortie texte. 
 
-
+# I3_mono_CDR3_AA.txt  I4_poly_CDR3_AA.txt
+#   I4_poly_CDR3_NA.txt
 def main():
-    fasta_path = "/home/lisa/Programmation/cloneCluster/data/Real/Extracted_CDR3/Extracted_by_IMGT/I1_oligo_CDR3_NA.txt"
-    cluster_path = "/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I1_IMGT_Fo.txt"
-    result_path ="/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I1_IMGT_Fo (cleaned).txt" 
+    fasta_path = "/home/lisa/Programmation/cloneCluster/data/Real/Extracted_CDR3/Extracted_by_IMGT/I3_mono_CDR3_NA.txt"
+    cluster_path = "/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I3_IMGT_Fo.txt"
+    result_path ="/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I3_IMGT_Fo_cleaned.txt" 
     seq = read_fasta(fasta_path)
     cluster = read_cluster(cluster_path)
     

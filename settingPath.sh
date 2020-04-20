@@ -28,7 +28,7 @@ then
     if [ "$long" = "Ent" ]
     then
 	    export DATA="$PWD/data/$caract/EntireSeq/$Type""clonal_simp_indel.fa"
-	    export RESULT="$PWD/result/$caract/$algo/$long/$Type""clonal_simp_indel.txt"
+	    export RESULT="$PWD/result/$caract/$algo/EntireSeq/$Type""clonal_simp_indel.txt"
     fi
 
     if [ "$long" = "CDR3" ]
@@ -45,17 +45,17 @@ then
         if [ "$Type" = "mono" ]
         then
             export DATA="$PWD/data/$caract/EntireSeq/I3_mono.fa"
-	        export RESULT="$PWD/result/$caract/$algo/$long/$Type""clonal_simp_indel.txt"
+	        export RESULT="$PWD/result/$caract/$algo/EntireSeq/$Type""clonal_simp_indel.txt"
 	    fi
 	    if [ "$Type" = "oligo" ]
         then
             export DATA="$PWD/data/$caract/EntireSeq/I1_oligo.fa"
-	        export RESULT="$PWD/result/$caract/$algo/$long/$Type""clonal_simp_indel.txt"
+	        export RESULT="$PWD/result/$caract/$algo/EntireSeq/$Type""clonal_simp_indel.txt"
 	    fi
 	    if [ "$Type" = "poly" ]
         then
             export DATA="$PWD/data/$caract/EntireSeq/I4_poly.fa"
-	        export RESULT="$PWD/result/$caract/$algo/$long/$Type""clonal_simp_indel.txt"
+	        export RESULT="$PWD/result/$caract/$algo/EntireSeq/$Type""clonal_simp_indel.txt"
 	    fi
     fi
 

@@ -25,7 +25,7 @@ def sequences_reader(path_to_file):
 		for line in fasta_file:
 			if line.startswith(">"):
 				name = line.strip()[1:]
-				name = 'S' + name
+				#name = 'S' + name
 			else:
 				seq = line.strip()
 				dico[name]=seq
@@ -33,21 +33,29 @@ def sequences_reader(path_to_file):
 
 
 def verif_taille(l_seqs,ref):
+    print(l_seqs)
+    print('dans verif taille')
     i = 0
     while l_seqs[i] not in ref :
         if i< len(l_seqs)-1 :
             i +=1
         else :
             break
+    res = True
     if l_seqs[i] in ref:
         cible = len(ref[l_seqs[i]])
+        print(ref[l_seqs[i]])
         for s in l_seqs[1:]:
             if s in ref :
+                print(ref[s])
                 if len(ref[s]) != cible:
-                    return False
+                    print('pas la même taille')
+                    res = False
     else :
+        print('dans le else')
         return False #Aucunes des séquences du cluster n'est présente dans le dictionnaire
-    return True
+    print(res)
+    return res
 
 	
 def Id_vers_seq(l_seqs,ref):
@@ -58,7 +66,7 @@ def Id_vers_seq(l_seqs,ref):
     return res
     
     
-def cons(l_seqs, ref): #liste de séquences du cluster et dictionnaire de référence de toutes les séquences
+def cons(l_seqs, ref): #liste des id des séquences du cluster et dictionnaire de référence de toutes les séquences
     if verif_taille(l_seqs,ref):
         l_seqs = Id_vers_seq(l_seqs,ref) #l_seqs contient maintenant les séquences, et plus les ID
         
@@ -76,7 +84,7 @@ def cons(l_seqs, ref): #liste de séquences du cluster et dictionnaire de réfé
         #print(res)
         return res
     else :
-        print('Attention, les séquences au sein d\'un même cluster n\'ont pas toutes la même taille!')
+        #print('Attention, les séquences au sein d\'un même cluster n\'ont pas toutes la même taille!')
         return []
     
 def to_string(l_seqs):
@@ -86,7 +94,7 @@ def to_string(l_seqs):
 
 def reader(path_to_file, path_to_data):  #equivalent de tri_cle_valeur dans graph_input
     ref = sequences_reader(path_to_data)
-    #print(ref)
+    print(ref)
     clusters = {}
     with open(path_to_file, "r") as file:
         for line in file:

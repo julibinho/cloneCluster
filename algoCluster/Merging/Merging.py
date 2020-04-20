@@ -30,8 +30,8 @@ def size_nx(G):
 
 def parse_arguments():
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-p","--path_to_file",help="""Chemin vers le fichier à utiliser""")
-	parser.add_argument("-r","--result",help="""Ou doit-on ranger le résultat ?""")
+	parser.add_argument("-p","--patient",help="""type de patient à utiliser""")
+	parser.add_argument("-r","--result",help="""nom du fichier résultat, qui sera dans le dossier de l'algo""")
 	return parser.parse_args()
 
 #############################################################
@@ -52,23 +52,18 @@ def exec(path_to_file): # utilisé par Exec_Time pour timer l'algo
 ############################################################
 
 def main():
-	#args = parse_arguments()
-	#path_to_file = args.path_to_file
-	#path_to_result = args.result
-	path_to_file = "/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Simulated_data/mono_simp_indel_imgt_Fo.txt"
-	path_to_data = "/home/lisa/Programmation/cloneCluster/data/Artificial/Extracted_CDR3/monoclonal_simp_indel_cdr3.fa"
-	path_to_result = "/home/lisa/Programmation/cloneCluster/algoCluster/Merging/test_artificial_mono.txt"
+	args = parse_arguments()
+	patient = args.patient
+	result = args.result
+	path_to_file = "/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Simulated_data/"+ patient+ "_simp_indel_imgt_Fo.txt"
+	path_to_data = "/home/lisa/Programmation/cloneCluster/data/Artificial/Extracted_CDR3/" + patient+"clonal_simp_indel_cdr3.fa"
+	path_to_result = "/home/lisa/Programmation/cloneCluster/algoCluster/Merging/" + result+".txt"
 	
 	dico_des_graphes = consensus.generate_graphs_consensus(path_to_file,path_to_data)
-	print(dico_des_graphes)
+	print("dico des graphes : ", dico_des_graphes)
 	partitions = {}
 	
-	#dico_des_mat = graph_input.generate_matrix(path_to_file) 
-	# CCL : les matrices de poids pèsent beaucoup moins lourd que les graphes networkx. 
 	for w in dico_des_graphes.keys():
-		#print('la matrice des distances pèse : ', sys.getsizeof(dico_des_mat[w]))
-		#print('le graphe de taille ', w, 'contenant ', len(dico_init[w]), 'séquences prends : ', size_nx(dico_des_graphes[w]))
-		#print(dico_init[w],'\n')
 		partitions[w] = community.best_partition(dico_des_graphes[w])
 	
 	result_output.generate_output_text(partitions,path_to_result) #permet de générer le fichier texte qui ensuite sert à comparer les résultats aux true clusters
@@ -76,8 +71,3 @@ def main():
 
 if __name__ == "__main__": 
 	main()
-	
-	#dico_des_graphes = graph_input.generate_graphs(path_to_file)
-	#partitions = {}
-	#for w in dico_des_graphes.keys():
-	#	partitions[w] = community.best_partition(dico_des_graphes[w])

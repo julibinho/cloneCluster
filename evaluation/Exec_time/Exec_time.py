@@ -9,7 +9,7 @@ sys.path.append(pwd+'/algoCluster/Louvain')
 #print(sys.path)
 
 
-import clustering ##utiliser la fonction exec(path_to_file) pour calculer le temps de calcul sur 
+import LouvainClustering as clustering ##utiliser la fonction exec(path_to_file) pour calculer le temps de calcul sur 
 
 def parse_arguments():
 	parser = argparse.ArgumentParser()
