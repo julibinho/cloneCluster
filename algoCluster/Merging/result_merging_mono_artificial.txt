@@ -1,5 +1,0 @@
-Total clusters =  21  Total sequences =  328
-nombres de paires classees :  6888.0
-false negative :  5468.0
-true positive :  252.0
-Pre =  0.77 Rec =  0.04 specificity =  0.93 F-score =  0.08 NumCluster =  21 NumSeqs =  328  sumTtC =  5720
