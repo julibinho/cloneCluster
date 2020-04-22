@@ -89,4 +89,21 @@ export GRAPH="$PWD/evaluation/Visualisation/show-graph.py"
 export ANALYSIS="$PWD/evaluation/Analysis-Recall/essai2.py"
 export TESTBENCH="$PWD/algoCluster/Test_Bench/test_bench.py"
 export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
-export RES_IMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$Type""_simp_indel_imgt_Fo.txt"
+export CLUST_IMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$Type""_simp_indel_imgt_Fo.txt"
+export MERG="$PWD/algoCluster/Merging/Merging.py"
+export REF_IMGT="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
+export RES_IMGT="$PWD/result/Merging/Artificial/$Type""_merging_clonal_simp_indel_cdr3.txt"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

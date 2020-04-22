@@ -4,7 +4,7 @@ import os
 import sys
 import networkx as nx
 pwd = os.getcwd()
-sys.path.append(pwd+'/tool') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
+sys.path.append(pwd+'/algoCluster/ToolGiveName') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
 import argparse
 import community ###### ALGO DE LOUVAIN #######
 import consensus
@@ -30,20 +30,21 @@ def size_nx(G):
 
 def parse_arguments():
 	parser = argparse.ArgumentParser()
-	parser.add_argument("-p","--patient",help="""type de patient à utiliser""")
-	parser.add_argument("-r","--result",help="""nom du fichier résultat, qui sera dans le dossier de l'algo""")
+	parser.add_argument("-c","--cluster_file",help="""résultat de l'algo""")
+	parser.add_argument("-d","--data",help="""fasta avec les id et les séquences""")
+	parser.add_argument("-r","--result",help="""ou ranger le resultat ? """)
 	return parser.parse_args()
 
 #############################################################
 #   Appelé par le module TIME
 #############################################################
 
-def exec(path_to_file): # utilisé par Exec_Time pour timer l'algo
-	dico_des_graphes, dico_init = graph_input.generate_graphs_and_init(path_to_file)
-	
+def exec(path_to_file, path_to_data): # utilisé par Exec_Time pour timer l'algo
+	dico_des_graphes = consensus.generate_graphs_consensus(path_to_file,path_to_data)
 	partitions = {}
+	
 	for w in dico_des_graphes.keys():
-		partitions[w] = community.best_partition(dico_des_graphes[w], dico_init[w])
+		partitions[w] = community.best_partition(dico_des_graphes[w])
 	return 0
 
 
@@ -53,14 +54,10 @@ def exec(path_to_file): # utilisé par Exec_Time pour timer l'algo
 
 def main():
 	args = parse_arguments()
-	patient = args.patient
-	result = args.result
-	path_to_file = "/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Simulated_data/"+ patient+ "_simp_indel_imgt_Fo.txt"
-	path_to_data = "/home/lisa/Programmation/cloneCluster/data/Artificial/Extracted_CDR3/" + patient+"clonal_simp_indel_cdr3.fa"
-	path_to_result = "/home/lisa/Programmation/cloneCluster/algoCluster/Merging/" + result+".txt"
-	
+	path_to_file = args.cluster_file
+	path_to_data = args.data
+	path_to_result = args.result
 	dico_des_graphes = consensus.generate_graphs_consensus(path_to_file,path_to_data)
-	print("dico des graphes : ", dico_des_graphes)
 	partitions = {}
 	
 	for w in dico_des_graphes.keys():

@@ -3,6 +3,9 @@
 import copy
 import networkx as nx
 import math
+import align_mult
+import os
+pwd = os.getcwd()
 ################################################################
 #   lit les fichiers résultats de Fair
 ################################################################
@@ -18,6 +21,62 @@ def index(l,elem):
             return i
     return 0
 
+	
+def Id_vers_seq(l_seqs,ref):
+    res = []
+    for s in l_seqs:
+        if s in ref:
+            res.append(ref[s])
+    return res
+
+
+def seq_consensus(seq):
+    res = ''
+    for nucl in seq:
+        p_max = 0
+        position = 0
+        #print(nucl)
+        for proba in nucl:
+            if proba > p_max:
+                p_max = proba
+                position = nucl.index(proba)
+        res += nucleotides[position]
+    #print('dans seq_consensus', res)
+    return res
+
+def blast_score(X1, X2):
+    #print(X1, X2)
+    with open(pwd + '/seq1.fa', "w") as fichier1:
+        fichier1.write('>S1\n'+seq_consensus(X1))
+    with open(pwd + '/seq2.fa', "w") as fichier2:
+        fichier2.write('>S2\n'+seq_consensus(X2))
+    res = align_mult.dist_blast('seq1.fa', 'seq2.fa' )
+    #sprint('res blast_score : ', res)
+    return res
+    
+def distance_euclidienne(X1,X2):
+    d = 0
+    for i in range(len(X1)):
+        d += (X1[i] - X2[i])**2
+    return math.sqrt(d)
+
+def distance_seqs(seq1,seq2): #où seq1 et seq2 sont des séquences consensus
+    distance=0
+    for i in range (len(seq1)):
+        distance += distance_euclidienne(seq1[i],seq2[i])
+    return(distance)
+
+    
+def to_string(l_seqs):
+    res = " ".join(s for s in l_seqs)
+    return res
+    
+###########################################
+#             Fonction de lecture
+###########################################
+
+
+
 
 def sequences_reader(path_to_file): 
 	dico = {}
@@ -32,9 +91,13 @@ def sequences_reader(path_to_file):
 	return dico # S1: 'AACC...
 
 
+########################################################################
+#     Permet de décider si on a besoin d'un alignement ou non 
+########################################################################
+
 def verif_taille(l_seqs,ref):
-    print(l_seqs)
-    print('dans verif taille')
+    #print(l_seqs)
+    #print('dans verif taille')
     i = 0
     while l_seqs[i] not in ref :
         if i< len(l_seqs)-1 :
@@ -44,27 +107,23 @@ def verif_taille(l_seqs,ref):
     res = True
     if l_seqs[i] in ref:
         cible = len(ref[l_seqs[i]])
-        print(ref[l_seqs[i]])
+        #print(ref[l_seqs[i]])
         for s in l_seqs[1:]:
             if s in ref :
-                print(ref[s])
+                #print(ref[s])
                 if len(ref[s]) != cible:
-                    print('pas la même taille')
+                    #print('pas la même taille')
                     res = False
     else :
-        print('dans le else')
+        #print('dans le else')
         return False #Aucunes des séquences du cluster n'est présente dans le dictionnaire
-    print(res)
+    #print(res)
     return res
 
-	
-def Id_vers_seq(l_seqs,ref):
-    res = []
-    for s in l_seqs:
-        if s in ref:
-            res.append(ref[s])
-    return res
-    
+####################################################
+#       Calcule la séquence consensus
+####################################################
+
     
 def cons(l_seqs, ref): #liste des id des séquences du cluster et dictionnaire de référence de toutes les séquences
     if verif_taille(l_seqs,ref):
@@ -84,17 +143,25 @@ def cons(l_seqs, ref): #liste des id des séquences du cluster et dictionnaire d
         #print(res)
         return res
     else :
+        l_seqs = Id_vers_seq(l_seqs,ref)
+        with open(pwd + '/fasta_clust.fa', "w") as fichier:
+            #print(' jfdkls', pwd)
+            count = 1
+            for s in l_seqs:
+                fichier.write('>S' + str(count) +'\n' + s + '\n')
+                count += 1
+        res = align_mult.align_mult('fasta_clust.fa' )
         #print('Attention, les séquences au sein d\'un même cluster n\'ont pas toutes la même taille!')
-        return []
-    
-def to_string(l_seqs):
-    res = " ".join(s for s in l_seqs)
-    return res
+        #os.system('rm fasta_clust.fa')
+        return res
 
+##########################################################
+#         Fonctions principales
+##########################################################
 
 def reader(path_to_file, path_to_data):  #equivalent de tri_cle_valeur dans graph_input
     ref = sequences_reader(path_to_data)
-    print(ref)
+    #print(ref)
     clusters = {}
     with open(path_to_file, "r") as file:
         for line in file:
@@ -108,19 +175,6 @@ def reader(path_to_file, path_to_data):  #equivalent de tri_cle_valeur dans grap
                     clusters[len(consensus)][to_string(seqs)] = consensus
     return clusters 
     
-    
-    
-def distance_euclidienne(X1,X2):
-    d = 0
-    for i in range(len(X1)):
-        d += (X1[i] - X2[i])**2
-    return math.sqrt(d)
-
-def distance_seqs(seq1,seq2): #où seq1 et seq2 sont des séquences consensus
-    distance=0
-    for i in range (len(seq1)):
-        distance += distance_euclidienne(seq1[i],seq2[i])
-    return(distance)
 
 def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnaire avec des sequences
 	res = {}
@@ -133,7 +187,11 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 			seq = d2[w].pop(x) # on retire la séquences courante du dictionnaire d2, qui mémorise les séquences déjà parcourues
 			G_courant.add_node(x) #certaines séquences sont les seules de leur taille
 			for y in d2[w].keys() : #on ne calcule la distance que pour les séquences qui n'ont pas encore étées parcourues. 
+			    ##############
 				d = distance_seqs(dico[w][y], seq)
+				#####################
+				#d = blast_score(dico[w][y], seq) # ne marche pas
+				##########################
 				#if d < 0.5 * w :
 				#	id +=1
 				#count +=1

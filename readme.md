@@ -39,5 +39,9 @@ $python3 $GRAPH -r $RESULT -t $REF
 python3 $ANALYSIS -p $RESULT -t $REF -d $DATA
 ```
 
+* Merging the resutls of IMGT algorihtm :
+```diff
+python3 $MERG -c $CLUST_IMGT -d $REF_IMGT -r $RES_IMGT
+```
 
 

@@ -13,17 +13,14 @@ alphabet = ['A','C','G','T']
 ######https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastSearch&BLAST_SPEC=blast2seq&LINK_LOC=align2seq
 
 
-def cmd_blast(nom_db, nom_input, nom_output):
-    cline = NcbimakeblastdbCommandline(cmd="makeblastdb",dbtype="nucl",input_file= nom_input, out = nom_db,parse_seqids=True)
+def cmd_blast(nom_db, nom_input, nom_query, nom_output):
+    cline = NcbimakeblastdbCommandline(cmd="makeblastdb", dbtype="nucl",input_file= nom_input, out = nom_db,parse_seqids=True)
     txt = cline()
     i = txt[0].find('added ')
     j = txt[0].find('sequences', i)
     nb_seq= int(txt[0][i+6:j])
     
-
-
-#print('\n\npremiere requete ok\n\n')
-    cline=NcbideltablastCommandline(cmd="blastn",query= nom_input , out= nom_output,db=nom_db, outfmt = 3, evalue = 0.001, max_target_seqs = 20)
+    cline=NcbideltablastCommandline(cmd="blastn", query= nom_query , out= nom_output,db=nom_db, outfmt = 3, evalue = 0.001, max_target_seqs = 20)
     cline()
     return nb_seq
 
@@ -72,8 +69,36 @@ def read_alignment(nom_output, length):
 def align_mult(nom_input):
     nom_db = "db"+nom_input
     nom_output = "output" + nom_input
-    nb_seq = cmd_blast(nom_db, nom_input, nom_output)
+    nb_seq = cmd_blast(nom_db, nom_input, nom_input, nom_output)
     res = read_alignment(nom_output, length_max_seqs(nom_input))
+    cmd = 'rm ' + nom_db + '.nhr ' + nom_db + '.nog ' + nom_db + '.nsi ' + nom_db + '.nin ' + nom_db + '.nsd ' + nom_db + '.nsq ' + nom_output
+    os.system(cmd) # permet de supprimer tous les fichiers crées lors de la création de la base de donnée blast. 
+    return res  
+
+
+def read_score(nom_output):
+    with open(nom_output, "r") as blast_out:
+        here = False
+        for line in blast_out:
+            if line.startswith('Sequences producing significant alignments'):
+                here = True
+            elif here and line.startswith('S'):
+                al= line.strip().split()
+                #print('al')
+                return al[1]
+    #print('\n\n\n\n\nl\'alignement n\'a pas marché')
+    #with open(nom_output, "r") as blast_out:
+    #    for line in blast_out:
+    #        print(line)
+    #print('\n\n\n\n\n\n')
+    return 0
+ 
+def dist_blast(nom_input, nom_query):
+    nom_db = "db"+nom_input
+    nom_output = "output" + nom_input
+    nb_seq = cmd_blast(nom_db, nom_input, nom_query, nom_output)
+    #print('nb seq dans dist_blast : ', nb_seq)
+    res = read_score(nom_output)
     cmd = 'rm ' + nom_db + '.nhr ' + nom_db + '.nog ' + nom_db + '.nsi ' + nom_db + '.nin ' + nom_db + '.nsd ' + nom_db + '.nsq ' + nom_output
     os.system(cmd) # permet de supprimer tous les fichiers crées lors de la création de la base de donnée blast. 
     return res  
@@ -81,10 +106,14 @@ def align_mult(nom_input):
 def normalise(align):
     for i in range(len(align)):
         s = align[i][0] + align[i][1] + align[i][2] + align[i][3]
-        align[i][0] = align[i][0]/s
-        align[i][1] = align[i][1]/s
-        align[i][2] = align[i][2]/s
-        align[i][3] = align[i][3]/s
+        if align[i][0] != 0:
+            align[i][0] = align[i][0]/s
+        if align[i][1] != 0:
+            align[i][1] = align[i][1]/s
+        if align[i][2] != 0:
+            align[i][2] = align[i][2]/s
+        if align[i][3] != 0:
+            align[i][3] = align[i][3]/s
     return align
 
 
@@ -93,5 +122,6 @@ def main():
     res = align_mult(nom_input)
     print('res', res)
     
-main()
-
+    
+if __name__ == "__main__": 
+	main()
