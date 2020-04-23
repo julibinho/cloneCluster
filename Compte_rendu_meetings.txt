@@ -13,3 +13,10 @@ A faire :
     Lisa : rendre utilisable l'algo de Merging pour avoir des résultats
     Quentin et Lisa : Commencer à rédiger le rapport
   Prochaine réunion : Mardi 21 Avril avec Nika pour discuter de immuneSIM
+
+
+23 Avril :
+A faire : 
+  Quentin : Installer et tester MMseq2
+  Lisa : Lancer Louvain sur les CDR3 de IMGT, Changer de méthode pour calculer les distances entre séquences consensus
+  Faire un fichier Exel pour comparer les résultats
