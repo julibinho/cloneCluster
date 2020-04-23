@@ -18,5 +18,5 @@ A faire :
 23 Avril :
 A faire : 
   Quentin : Installer et tester MMseq2
-  Lisa : Lancer Louvain sur les CDR3 de IMGT, Changer de méthode pour calculer les distances entre séquences consensus
+  Lisa : Lancer Louvain sur les CDR3 de IMGT, Changer de méthode pour calculer les distances entre séquences consensus (Blast ou programmation dynamique)
   Faire un fichier Exel pour comparer les résultats
