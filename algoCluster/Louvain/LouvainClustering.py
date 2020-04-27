@@ -4,7 +4,7 @@ import os
 import sys
 import networkx as nx
 pwd = os.getcwd()
-sys.path.append(pwd+'/algoCluster/ToolGiveName') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
+sys.path.append(pwd+'/algoCluster/Input_Output') # Fonctionne sur windows et linux, et permet d'indiquer dans quel fichier sont les modules. 
 import argparse
 import community ###### ALGO DE LOUVAIN #######
 

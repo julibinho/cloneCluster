@@ -9,6 +9,7 @@ read -p 'Entrez l algorithme que vous souhaitez utiliser parmis Louvain ou Spect
 read -p 'Entrez le type de donnée souhaitée parmi mono, oligo ou poly : ' Type
 read -p 'Entrez la longueur de séquences souhaitées parmi CDR3 ou EntireSeq : ' long
 read -p 'Entrez la caractéristique des données souhaitées parmi Artificial ou Real : ' caract
+read -p 'Numéro du patient (1, 3 ou 4) : ' patient
 
 
 if [ "$algo" = "Louvain" ]
@@ -89,10 +90,12 @@ export GRAPH="$PWD/evaluation/Visualisation/show-graph.py"
 export ANALYSIS="$PWD/evaluation/Analysis-Recall/essai2.py"
 export TESTBENCH="$PWD/algoCluster/Test_Bench/test_bench.py"
 export REF="$PWD/data/Artificial/True_clusters/$Type""clonal_simp_indel_true_clusters.txt"
-export CLUST_IMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$Type""_simp_indel_imgt_Fo.txt"
+
+##Pour le merging
+export CLUST_IMGT="$PWD/data/Tools_output/IMGT_output/Real_data/I$patient""_IMGT_Fo_cleaned.txt"
 export MERG="$PWD/algoCluster/Merging/Merging.py"
-export REF_IMGT="$PWD/data/Artificial/Extracted_CDR3/$Type""clonal_simp_indel_cdr3.fa"
-export RES_IMGT="$PWD/result/Merging/Artificial/$Type""_merging_clonal_simp_indel_cdr3.txt"
+export REF_IMGT="$PWD/data/Real/Extracted_CDR3/Extracted_by_IMGT/I$patient""_CDR3_NA.txt"
+export RES_IMGT="$PWD/result/Merging/Real/I$patient""_merging_IMGT_cdr3.txt"
 
 
 

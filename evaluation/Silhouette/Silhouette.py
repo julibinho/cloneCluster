@@ -34,7 +34,7 @@ def readFastaMul(nomFi):
 			if seq != "":
 				lesSeq[nom] = seq
 				#print(l,nom,seq)
-			nom=l[1:-1]
+			nom='S' + l[1:-1]
 			#print("ensuite",nom)
 			seq=""
 		else:
@@ -162,6 +162,7 @@ def CalculateMedianDist(Dicocentroid):
 		#print(i)
 		listloc=[]
 		for j in range(i+1,len(Centroid_list)):
+			print('\t\ti : ', Centroid_list[i],'\t\tj : ',  Centroid_list[j])
 			listloc.append(Levenshtein.distance(Centroid_list[i],Centroid_list[j]))
 			
 			if j == len(Centroid_list)-1:
@@ -186,9 +187,10 @@ def silhouette(Dicofasta,Dicocentroid,Dicoresult,DicoNeighbour):
 	#for cluster in tqdm.tqdm(Dicoresult.keys()):
 	for cluster in Dicoresult.keys():
 		for seq in Dicoresult[cluster]:
-			ai=Levenshtein.distance(Dicofasta[seq],Dicocentroid[cluster])
-			bi=Levenshtein.distance(Dicofasta[seq],Dicocentroid[DicoNeighbour[cluster]])
-			summe+=calculeSil(ai,bi)
+		    if seq in Dicofasta:
+			    ai=Levenshtein.distance(Dicofasta[seq],Dicocentroid[cluster])
+			    bi=Levenshtein.distance(Dicofasta[seq],Dicocentroid[DicoNeighbour[cluster]])
+			    summe+=calculeSil(ai,bi)
 	return summe/float(len(Dicofasta))
 
 #####################################################################
@@ -221,7 +223,6 @@ def main():
 	Dicofasta=readFastaMul(FastaFile)
 
 	Dicoresult=readClusteringResults(ClusteringFile)
-
 
 	#Plot(Dicoresult,FastaFile)
 	
