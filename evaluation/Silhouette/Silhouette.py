@@ -34,7 +34,9 @@ def readFastaMul(nomFi):
 			if seq != "":
 				lesSeq[nom] = seq
 				#print(l,nom,seq)
-			nom='S' + l[1:-1]
+			nom= l[1:-1]
+			if not nom.startswith('S'):
+			    nom = 'S' + nom 
 			#print("ensuite",nom)
 			seq=""
 		else:
@@ -58,7 +60,9 @@ def readClusteringResults(nomFi):
 	for l in range(len(lines)):
 		Seq_nom=lines[l].split("\t")[1].rstrip().split(" ")
 		cluster=lines[l].split("\t")[0].rstrip()
-
+		for i in range(len(Seq_nom)):
+			if not Seq_nom[i].startswith('S'):
+				Seq_nom[i] = 'S' + Seq_nom[i]
 		if cluster in Clustering_lables.keys():
 			Clustering_lables[cluster].append(Seq_nom)
 		else:
@@ -162,7 +166,7 @@ def CalculateMedianDist(Dicocentroid):
 		#print(i)
 		listloc=[]
 		for j in range(i+1,len(Centroid_list)):
-			print('\t\ti : ', Centroid_list[i],'\t\tj : ',  Centroid_list[j])
+			#print('\t\ti : ', Centroid_list[i],'\t\tj : ',  Centroid_list[j])
 			listloc.append(Levenshtein.distance(Centroid_list[i],Centroid_list[j]))
 			
 			if j == len(Centroid_list)-1:

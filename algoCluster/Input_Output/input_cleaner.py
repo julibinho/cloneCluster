@@ -30,7 +30,7 @@ def read_fasta(path_to_file):
     with open(path_to_file, "r") as fasta_file:
         for line in fasta_file:
             if line.startswith(">"):
-                seq.append(line.strip()[1:])
+                seq.append(line.strip()[2:])
             
     return seq
 

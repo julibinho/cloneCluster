@@ -88,6 +88,9 @@ def readResultFile(filename):
 			arraySeqIds = members.split(" ")
 			if arraySeqIds[-1] == '\n':
 				arraySeqIds = members.split(" ")[:-1]
+			for i in range(len(arraySeqIds)):
+			    if not arraySeqIds[i].startswith('S'):
+			        arraySeqIds[i] = 'S' + arraySeqIds[i]
 			if len(arraySeqIds) != 0:
 				cluster[IDcluster] = arraySeqIds
 				totalSeq += len(arraySeqIds)
@@ -109,6 +112,8 @@ def readTrueClusterFile(filename):
 		#print seq
 		for s in seq:
 			#hashCluster_detail[int(s)] = IDcluster
+			if not s.startswith("S"):
+			    s = 'S' + s
 			hashCluster_detail[s] = IDcluster
 		hashCluster[int(IDcluster)] = len(seq)
 	file.close()

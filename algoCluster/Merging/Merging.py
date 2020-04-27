@@ -41,11 +41,11 @@ def parse_arguments():
 #############################################################
 
 def exec(path_to_file, path_to_data): # utilisé par Exec_Time pour timer l'algo
-	dico_des_graphes = consensus.generate_graphs_consensus(path_to_file,path_to_data)
-	partitions = {}
-	
-	for w in dico_des_graphes.keys():
-		partitions[w] = community.best_partition(dico_des_graphes[w])
+	dico = consensus.reader(path_to_file,path_to_data) # dico {longueur : {nom:seq}}
+	partition = {}
+	for cle, valeur in dico.items():
+		graphe = consensus.instanciation_des_graphes_cle_valeur({cle:valeur})
+		partition[cle]=community.best_partition(graphe[cle])
 	return 0
 
 
@@ -60,17 +60,17 @@ def main():
 	path_to_result = args.result
 	################
 	start_time = time.time()
-	print(path_to_file, path_to_data)
+	
 	dico = consensus.reader(path_to_file,path_to_data) # dico {longueur : {nom:seq}}
-	print('dico OK')
+	#print('dico OK')
 	partition = {}
 	for cle, valeur in dico.items():
-		print('séquences CDR3 de longueur : ', cle)
+		#print('séquences CDR3 de longueur : ', cle)
 		#print(valeur)
 		graphe = consensus.instanciation_des_graphes_cle_valeur({cle:valeur})
-		print('graphe OK')
+		#print('graphe OK')
 		partition[cle]=community.best_partition(graphe[cle])
-	print('fini')
+	#print('fini')
 	result_output.generate_output_text(partition, path_to_result)
 	exec_time = time.time() - start_time
 	print('temps d\'execution : ', exec_time)
