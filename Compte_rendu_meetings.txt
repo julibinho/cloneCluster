@@ -20,3 +20,17 @@ A faire :
   Quentin : Installer et tester MMseq2
   Lisa : Lancer Louvain sur les CDR3 de IMGT, Changer de méthode pour calculer les distances entre séquences consensus (Blast ou programmation dynamique)
   Faire un fichier Exel pour comparer les résultats
+
+
+30 Avril :
+A faire : 
+Lisa :
+- mettre les proximités de Hamming en proba
+- faire un comparatifs des seuils que l'on peut mettre pour la création des graphes networkx pour augmenter le nb de clusters 
+- Est-ce que les séquences des clusters IMGT ont toutes la même taille en CDR3 ? (si elles ont toutes la même taille pas besoin de faire d'alignement multiple)
+- regarder les exemples de profile profile donnés par Juliana
+Quentin:
+- regarder les algos donnés par Juliana
+Juliana :
+- créer un exemple de calcul profil-profil 
+- chercher des algos pour faire l'optimisation d'autres paramètres que la modularité
