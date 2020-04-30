@@ -1,0 +1,431 @@
+Problemes d'existance des séquences : 
+
+
+
+cluster 245
+les seqs n'existent pas dans le fichier source :['S51209']
+cluster 277
+les seqs n'existent pas dans le fichier source :['S64353']
+cluster 302
+les seqs n'existent pas dans le fichier source :['S51191']
+cluster 311
+les seqs n'existent pas dans le fichier source :['S49191']
+cluster 545
+les seqs n'existent pas dans le fichier source :['S10969']
+cluster 777
+les seqs n'existent pas dans le fichier source :['S64650']
+cluster 868
+les seqs n'existent pas dans le fichier source :['S857', 'S32591']
+cluster 906
+les seqs n'existent pas dans le fichier source :['S912', 'S2626', 'S5537', 'S12929', 'S13002', 'S17237', 'S18069', 'S34356', 'S39178', 'S41955', 'S47540', 'S50454', 'S50538', 'S52473', 'S53298', 'S57356', 'S57808', 'S58220', 'S60453', 'S62813', 'S63745', 'S65872', 'S66207', 'S67966', 'S69270']
+cluster 1029
+les seqs n'existent pas dans le fichier source :['S66524']
+cluster 1070
+les seqs n'existent pas dans le fichier source :['S63159']
+cluster 1102
+les seqs n'existent pas dans le fichier source :['S3953', 'S11758', 'S23282', 'S28916', 'S30224', 'S34812', 'S38128', 'S39846', 'S46631', 'S46773', 'S53570', 'S54110', 'S57547', 'S60050', 'S61459', 'S62453', 'S63779', 'S66722', 'S67772']
+cluster 1138
+les seqs n'existent pas dans le fichier source :['S13367']
+cluster 1231
+les seqs n'existent pas dans le fichier source :['S47138']
+cluster 1367
+les seqs n'existent pas dans le fichier source :['S9126']
+cluster 1625
+les seqs n'existent pas dans le fichier source :['S13315']
+cluster 1787
+les seqs n'existent pas dans le fichier source :['S20463']
+cluster 1913
+les seqs n'existent pas dans le fichier source :['S34892']
+cluster 2204
+les seqs n'existent pas dans le fichier source :['S14671']
+cluster 2272
+les seqs n'existent pas dans le fichier source :['S53523']
+cluster 2293
+les seqs n'existent pas dans le fichier source :['S26781', 'S27150', 'S48256']
+cluster 2300
+les seqs n'existent pas dans le fichier source :['S25630']
+cluster 2395
+les seqs n'existent pas dans le fichier source :['S60265']
+cluster 2507
+les seqs n'existent pas dans le fichier source :['S4437', 'S5687', 'S8128', 'S8846', 'S13969', 'S14238', 'S29579', 'S41628', 'S44093', 'S44160', 'S52003', 'S63022', 'S63593', 'S66770', 'S68953']
+cluster 2525
+les seqs n'existent pas dans le fichier source :['S43137', 'S47128']
+cluster 2595
+les seqs n'existent pas dans le fichier source :['S31224']
+cluster 2644
+les seqs n'existent pas dans le fichier source :['S63749']
+cluster 2718
+les seqs n'existent pas dans le fichier source :['S447', 'S6231', 'S7090', 'S8269', 'S10912', 'S10951', 'S14333', 'S16865', 'S22751', 'S23677', 'S28314', 'S35795', 'S38543', 'S43289', 'S43683', 'S55152', 'S67364', 'S68477']
+cluster 2719
+les seqs n'existent pas dans le fichier source :['S33509']
+cluster 2871
+les seqs n'existent pas dans le fichier source :['S2042']
+cluster 2876
+les seqs n'existent pas dans le fichier source :['S69060']
+cluster 2898
+les seqs n'existent pas dans le fichier source :['S35213']
+cluster 2962
+les seqs n'existent pas dans le fichier source :['S253', 'S2748', 'S3053', 'S3531', 'S5985', 'S9310', 'S10212', 'S10702', 'S13104', 'S13817', 'S19210', 'S19583', 'S20853', 'S24119', 'S26727', 'S34031', 'S35995', 'S36519', 'S38429', 'S39658', 'S40402', 'S41048', 'S44505', 'S46600', 'S46621', 'S46736', 'S48187', 'S49425', 'S52462', 'S53870', 'S55266', 'S58482', 'S60686', 'S68831']
+cluster 2974
+les seqs n'existent pas dans le fichier source :['S20772']
+cluster 3000
+les seqs n'existent pas dans le fichier source :['S12797']
+cluster 3027
+les seqs n'existent pas dans le fichier source :['S53656']
+cluster 3070
+les seqs n'existent pas dans le fichier source :['S43700']
+cluster 3103
+les seqs n'existent pas dans le fichier source :['S1784', 'S15128', 'S30741', 'S37899', 'S41707', 'S61255', 'S63308']
+cluster 3237
+les seqs n'existent pas dans le fichier source :['S25701']
+cluster 3249
+les seqs n'existent pas dans le fichier source :['S2908']
+cluster 3287
+les seqs n'existent pas dans le fichier source :['S40844']
+cluster 3294
+les seqs n'existent pas dans le fichier source :['S26099']
+cluster 3512
+les seqs n'existent pas dans le fichier source :['S2229', 'S4055', 'S4594', 'S7510', 'S7777', 'S8699', 'S11119', 'S12003', 'S13260', 'S13828', 'S18632', 'S19148', 'S19492', 'S21550', 'S22085', 'S24627', 'S25899', 'S26968', 'S31011', 'S34070', 'S34852', 'S36659', 'S41696', 'S43827', 'S44633', 'S48056', 'S49289', 'S52151', 'S52799', 'S53930', 'S54849', 'S54893', 'S56564', 'S62358', 'S62557', 'S67427', 'S69481']
+cluster 3538
+les seqs n'existent pas dans le fichier source :['S15668', 'S66788']
+cluster 3683
+les seqs n'existent pas dans le fichier source :['S29345']
+cluster 3768
+les seqs n'existent pas dans le fichier source :['S3809']
+cluster 3771
+les seqs n'existent pas dans le fichier source :['S202', 'S2427', 'S10857', 'S12742', 'S14000', 'S19144', 'S19753', 'S21557', 'S22635', 'S26819', 'S31329', 'S31424', 'S31719', 'S31747', 'S35548', 'S35849', 'S38230', 'S42818', 'S45428', 'S50103', 'S50818', 'S58012', 'S62163', 'S65028', 'S67177']
+cluster 3786
+les seqs n'existent pas dans le fichier source :['S23626', 'S31625']
+cluster 3924
+les seqs n'existent pas dans le fichier source :['S52887']
+cluster 3984
+les seqs n'existent pas dans le fichier source :['S27432']
+cluster 4000
+les seqs n'existent pas dans le fichier source :['S55052']
+cluster 4129
+les seqs n'existent pas dans le fichier source :['S10309']
+cluster 4148
+les seqs n'existent pas dans le fichier source :['S37815']
+cluster 4207
+les seqs n'existent pas dans le fichier source :['S37125']
+cluster 4336
+les seqs n'existent pas dans le fichier source :['S16891']
+cluster 4431
+les seqs n'existent pas dans le fichier source :['S7242', 'S21707', 'S22079', 'S24846', 'S26598', 'S30919', 'S32202', 'S38825', 'S46937', 'S47421', 'S55062', 'S60755']
+cluster 4496
+les seqs n'existent pas dans le fichier source :['S17468']
+cluster 4514
+les seqs n'existent pas dans le fichier source :['S36018']
+cluster 4557
+les seqs n'existent pas dans le fichier source :['S40074']
+cluster 4683
+les seqs n'existent pas dans le fichier source :['S54186']
+cluster 4754
+les seqs n'existent pas dans le fichier source :['S17741']
+cluster 4765
+les seqs n'existent pas dans le fichier source :['S40160']
+cluster 5124
+les seqs n'existent pas dans le fichier source :['S10253', 'S24442', 'S27704', 'S30580', 'S36938', 'S44367', 'S51636', 'S52940', 'S61022', 'S67778']
+cluster 5155
+les seqs n'existent pas dans le fichier source :['S5242', 'S8292', 'S9655', 'S10317', 'S24952', 'S27643', 'S34300', 'S38109', 'S50280', 'S51830', 'S53469', 'S58973', 'S67066']
+cluster 5192
+les seqs n'existent pas dans le fichier source :['S21721']
+cluster 5208
+les seqs n'existent pas dans le fichier source :['S8628']
+cluster 5507
+les seqs n'existent pas dans le fichier source :['S9313', 'S14239', 'S25967', 'S34946', 'S39382', 'S45538', 'S49198', 'S59135']
+cluster 5563
+les seqs n'existent pas dans le fichier source :['S49099']
+cluster 5671
+les seqs n'existent pas dans le fichier source :['S43955']
+cluster 5685
+les seqs n'existent pas dans le fichier source :['S33320']
+cluster 5761
+les seqs n'existent pas dans le fichier source :['S38165', 'S52569', 'S64370']
+cluster 5830
+les seqs n'existent pas dans le fichier source :['S15948']
+cluster 5920
+les seqs n'existent pas dans le fichier source :['S11747']
+cluster 5949
+les seqs n'existent pas dans le fichier source :['S64442']
+cluster 6261
+les seqs n'existent pas dans le fichier source :['S7649']
+cluster 6367
+les seqs n'existent pas dans le fichier source :['S55458']
+cluster 6449
+les seqs n'existent pas dans le fichier source :['S3523']
+cluster 6486
+les seqs n'existent pas dans le fichier source :['S48706']
+cluster 6530
+les seqs n'existent pas dans le fichier source :['S29930']
+cluster 6572
+les seqs n'existent pas dans le fichier source :['S61840']
+cluster 6701
+les seqs n'existent pas dans le fichier source :['S42563']
+cluster 6707
+les seqs n'existent pas dans le fichier source :['S49431']
+cluster 6722
+les seqs n'existent pas dans le fichier source :['S52963']
+cluster 6760
+les seqs n'existent pas dans le fichier source :['S3551', 'S8396', 'S16432', 'S16462', 'S16756', 'S18751', 'S20672', 'S24753', 'S30551', 'S32987', 'S33692', 'S34733', 'S35948', 'S38123', 'S43786', 'S43837', 'S44982', 'S45147', 'S47908', 'S53769', 'S58617', 'S58898', 'S59182', 'S60763', 'S65661']
+cluster 6868
+les seqs n'existent pas dans le fichier source :['S43990']
+cluster 6913
+les seqs n'existent pas dans le fichier source :['S919', 'S4123', 'S10432', 'S15070', 'S15201', 'S21368', 'S22883', 'S23325', 'S24300', 'S24763', 'S25028', 'S28405', 'S31521', 'S32003', 'S48402', 'S48580', 'S59976', 'S61362', 'S61865', 'S63372', 'S64244', 'S66083', 'S69068', 'S69778']
+cluster 7005
+les seqs n'existent pas dans le fichier source :['S40698']
+cluster 7060
+les seqs n'existent pas dans le fichier source :['S15336']
+cluster 7105
+les seqs n'existent pas dans le fichier source :['S33464']
+cluster 7190
+les seqs n'existent pas dans le fichier source :['S3963']
+cluster 7221
+les seqs n'existent pas dans le fichier source :['S65097']
+cluster 7271
+les seqs n'existent pas dans le fichier source :['S1922', 'S2861', 'S3563', 'S3702', 'S4380', 'S9587', 'S10326', 'S10673', 'S11399', 'S13319', 'S14237', 'S15028', 'S18479', 'S19490', 'S19660', 'S20007', 'S22035', 'S22320', 'S26103', 'S26445', 'S26494', 'S30706', 'S32227', 'S32721', 'S35825', 'S36679', 'S39462', 'S44128', 'S46917', 'S47890', 'S52520', 'S59178', 'S59908', 'S61261', 'S63213', 'S65518', 'S65991']
+cluster 7378
+les seqs n'existent pas dans le fichier source :['S43213']
+cluster 7468
+les seqs n'existent pas dans le fichier source :['S5750']
+cluster 7470
+les seqs n'existent pas dans le fichier source :['S18587']
+cluster 7518
+les seqs n'existent pas dans le fichier source :['S21738']
+cluster 7662
+les seqs n'existent pas dans le fichier source :['S1771', 'S3477', 'S4272', 'S9965', 'S10754', 'S12224', 'S19885', 'S23522', 'S24120', 'S25569', 'S26762', 'S28374', 'S28692', 'S29687', 'S30739', 'S30853', 'S31847', 'S33545', 'S35601', 'S41406', 'S41608', 'S47234', 'S47969', 'S47983', 'S48355', 'S48549', 'S48767', 'S50951', 'S51820', 'S52362', 'S52944', 'S55992', 'S59792', 'S60927', 'S61103', 'S61706', 'S62754', 'S63095', 'S67595']
+cluster 7697
+les seqs n'existent pas dans le fichier source :['S23170', 'S57884']
+cluster 7847
+les seqs n'existent pas dans le fichier source :['S62878']
+cluster 7914
+les seqs n'existent pas dans le fichier source :['S55717']
+cluster 8018
+les seqs n'existent pas dans le fichier source :['S7741']
+cluster 8086
+les seqs n'existent pas dans le fichier source :['S14715']
+cluster 8121
+les seqs n'existent pas dans le fichier source :['S55661']
+cluster 8283
+les seqs n'existent pas dans le fichier source :['S4613', 'S10387', 'S12997', 'S16444', 'S17781', 'S21761', 'S28742', 'S33182', 'S35415', 'S35751', 'S36487', 'S41126', 'S47761', 'S53030', 'S54192', 'S61852', 'S62116', 'S64999', 'S66580', 'S67869']
+cluster 8325
+les seqs n'existent pas dans le fichier source :['S18570']
+cluster 8373
+les seqs n'existent pas dans le fichier source :['S4662', 'S5049', 'S6762', 'S7454', 'S14473', 'S17939', 'S22372', 'S24789', 'S28677', 'S29403', 'S34943', 'S38742', 'S40501', 'S44619', 'S50269', 'S50494', 'S52116', 'S58245']
+cluster 8565
+les seqs n'existent pas dans le fichier source :['S58669']
+cluster 8717
+les seqs n'existent pas dans le fichier source :['S33845']
+cluster 8797
+les seqs n'existent pas dans le fichier source :['S29664']
+cluster 8881
+les seqs n'existent pas dans le fichier source :['S13154', 'S39308']
+cluster 8894
+les seqs n'existent pas dans le fichier source :['S6708']
+cluster 9108
+les seqs n'existent pas dans le fichier source :['S25437', 'S51043']
+cluster 9237
+les seqs n'existent pas dans le fichier source :['S5485']
+cluster 9238
+les seqs n'existent pas dans le fichier source :['S48341']
+cluster 9252
+les seqs n'existent pas dans le fichier source :['S23987']
+cluster 9269
+les seqs n'existent pas dans le fichier source :['S6776', 'S26136', 'S27491', 'S31933', 'S33384', 'S54870', 'S59234', 'S59690', 'S66273', 'S69816']
+cluster 9270
+les seqs n'existent pas dans le fichier source :['S41252']
+cluster 9309
+les seqs n'existent pas dans le fichier source :['S40939']
+cluster 9347
+les seqs n'existent pas dans le fichier source :['S4566']
+cluster 9476
+les seqs n'existent pas dans le fichier source :['S3502', 'S3541', 'S5765', 'S7616', 'S20503', 'S24022', 'S25536', 'S25577', 'S30955', 'S31673', 'S34447', 'S34933', 'S36279', 'S39186', 'S39995', 'S40397', 'S42432', 'S49718', 'S50925', 'S51045', 'S52551', 'S52737', 'S54088', 'S56210', 'S60985', 'S62049', 'S62850', 'S63879', 'S66723', 'S67827', 'S69912']
+cluster 9649
+les seqs n'existent pas dans le fichier source :['S8796', 'S37257']
+cluster 9691
+les seqs n'existent pas dans le fichier source :['S9800']
+cluster 9930
+les seqs n'existent pas dans le fichier source :['S1885']
+cluster 10015
+les seqs n'existent pas dans le fichier source :['S49077']
+cluster 10254
+les seqs n'existent pas dans le fichier source :['S28526']
+cluster 10318
+les seqs n'existent pas dans le fichier source :['S6271', 'S29292']
+cluster 10457
+les seqs n'existent pas dans le fichier source :['S42280']
+cluster 10513
+les seqs n'existent pas dans le fichier source :['S170']
+cluster 10753
+les seqs n'existent pas dans le fichier source :['S17336', 'S22253', 'S24216', 'S29861', 'S33186', 'S46651', 'S53996', 'S57829', 'S60367']
+cluster 10792
+les seqs n'existent pas dans le fichier source :['S11006']
+cluster 10797
+les seqs n'existent pas dans le fichier source :['S33904']
+cluster 11056
+les seqs n'existent pas dans le fichier source :['S58156']
+cluster 11180
+les seqs n'existent pas dans le fichier source :['S1875']
+cluster 11198
+les seqs n'existent pas dans le fichier source :['S60566']
+cluster 11360
+les seqs n'existent pas dans le fichier source :['S22133', 'S33312', 'S35460', 'S35774', 'S44149', 'S52660', 'S53098', 'S55592', 'S59984']
+cluster 11363
+les seqs n'existent pas dans le fichier source :['S13582']
+cluster 11520
+les seqs n'existent pas dans le fichier source :['S58923']
+cluster 11555
+les seqs n'existent pas dans le fichier source :['S28884']
+cluster 11631
+les seqs n'existent pas dans le fichier source :['S29305']
+cluster 11833
+les seqs n'existent pas dans le fichier source :['S60535']
+cluster 11910
+les seqs n'existent pas dans le fichier source :['S39075']
+cluster 11943
+les seqs n'existent pas dans le fichier source :['S16885', 'S18194', 'S25534', 'S41852', 'S49018', 'S50956', 'S53642', 'S54400', 'S55687', 'S59428', 'S67794']
+cluster 12014
+les seqs n'existent pas dans le fichier source :['S604', 'S4850', 'S21194', 'S67508']
+cluster 12123
+les seqs n'existent pas dans le fichier source :['S38734']
+cluster 12195
+les seqs n'existent pas dans le fichier source :['S48318']
+cluster 12233
+les seqs n'existent pas dans le fichier source :['S33145']
+cluster 12329
+les seqs n'existent pas dans le fichier source :['S4070', 'S31313', 'S63317']
+cluster 12343
+les seqs n'existent pas dans le fichier source :['S46456']
+cluster 12344
+les seqs n'existent pas dans le fichier source :['S24785']
+cluster 12354
+les seqs n'existent pas dans le fichier source :['S13649']
+cluster 12366
+les seqs n'existent pas dans le fichier source :['S46267']
+cluster 12368
+les seqs n'existent pas dans le fichier source :['S6804']
+cluster 12373
+les seqs n'existent pas dans le fichier source :['S61660']
+cluster 12463
+les seqs n'existent pas dans le fichier source :['S56482']
+cluster 12719
+les seqs n'existent pas dans le fichier source :['S43032']
+cluster 12867
+les seqs n'existent pas dans le fichier source :['S5734', 'S18088', 'S58552', 'S61410']
+cluster 12961
+les seqs n'existent pas dans le fichier source :['S41655']
+cluster 13100
+les seqs n'existent pas dans le fichier source :['S51277']
+cluster 13120
+les seqs n'existent pas dans le fichier source :['S7753']
+cluster 13318
+les seqs n'existent pas dans le fichier source :['S1360', 'S38262']
+cluster 13394
+les seqs n'existent pas dans le fichier source :['S14883']
+cluster 13421
+les seqs n'existent pas dans le fichier source :['S60521']
+cluster 13595
+les seqs n'existent pas dans le fichier source :['S484', 'S1377', 'S15326', 'S19194', 'S28851', 'S32327', 'S38414', 'S41487', 'S43028', 'S46243', 'S48442', 'S53038', 'S54564', 'S55910', 'S59550', 'S62886', 'S65719']
+cluster 13659
+les seqs n'existent pas dans le fichier source :['S27542']
+cluster 13701
+les seqs n'existent pas dans le fichier source :['S67656']
+cluster 13729
+les seqs n'existent pas dans le fichier source :['S38087', 'S52673']
+cluster 13739
+les seqs n'existent pas dans le fichier source :['S32447']
+cluster 13796
+les seqs n'existent pas dans le fichier source :['S60567']
+cluster 13935
+les seqs n'existent pas dans le fichier source :['S52589']
+cluster 13966
+les seqs n'existent pas dans le fichier source :['S39860']
+cluster 13980
+les seqs n'existent pas dans le fichier source :['S1099', 'S3740', 'S8710', 'S10036', 'S18321', 'S22709', 'S22848', 'S24454', 'S25068', 'S25415', 'S26207', 'S26341', 'S34005', 'S35477', 'S37324', 'S38286', 'S39336', 'S40894', 'S41071', 'S45283', 'S45431', 'S47407', 'S53505', 'S54828', 'S55226', 'S57919', 'S59789', 'S61939', 'S65134', 'S65860', 'S67095', 'S68051', 'S68641']
+cluster 14017
+les seqs n'existent pas dans le fichier source :['S4948', 'S8691', 'S11193', 'S28934', 'S30212', 'S31962', 'S37531', 'S38822', 'S40859', 'S41389', 'S42426']
+cluster 14059
+les seqs n'existent pas dans le fichier source :['S50598']
+cluster 14107
+les seqs n'existent pas dans le fichier source :['S13313', 'S45974']
+cluster 14154
+les seqs n'existent pas dans le fichier source :['S4449']
+cluster 14209
+les seqs n'existent pas dans le fichier source :['S49121']
+cluster 14232
+les seqs n'existent pas dans le fichier source :['S65785']
+cluster 14379
+les seqs n'existent pas dans le fichier source :['S22070']
+cluster 14415
+les seqs n'existent pas dans le fichier source :['S393', 'S7522', 'S8172', 'S12426', 'S14053', 'S14099', 'S15610', 'S19434', 'S26831', 'S27553', 'S32947', 'S38851', 'S41200', 'S42910', 'S48635', 'S50159', 'S51995', 'S57206', 'S57337', 'S57388', 'S57709', 'S59148', 'S63260', 'S64094', 'S69928']
+cluster 14587
+les seqs n'existent pas dans le fichier source :['S2870', 'S5117', 'S10827', 'S12418', 'S13096', 'S22043', 'S24741', 'S27252', 'S29131', 'S29168', 'S35647', 'S36337', 'S37543', 'S39947', 'S41789', 'S50288', 'S54252', 'S55469', 'S58763', 'S58826', 'S60589', 'S60920', 'S61570', 'S61700', 'S64243']
+cluster 14606
+les seqs n'existent pas dans le fichier source :['S5102']
+cluster 14607
+les seqs n'existent pas dans le fichier source :['S8465']
+cluster 14700
+les seqs n'existent pas dans le fichier source :['S27665']
+cluster 14799
+les seqs n'existent pas dans le fichier source :['S63152']
+cluster 14836
+les seqs n'existent pas dans le fichier source :['S19536']
+cluster 15017
+les seqs n'existent pas dans le fichier source :['S949', 'S1602', 'S2834', 'S5568', 'S10667', 'S12460', 'S18940', 'S22171', 'S24026', 'S26877', 'S27677', 'S29646', 'S32708', 'S34454', 'S35174', 'S36319', 'S41358', 'S44646', 'S46790', 'S48589', 'S49806', 'S53847', 'S62797', 'S64023', 'S64948']
+cluster 15065
+les seqs n'existent pas dans le fichier source :['S65246']
+cluster 15204
+les seqs n'existent pas dans le fichier source :['S46292']
+cluster 15303
+les seqs n'existent pas dans le fichier source :['S66716']
+cluster 15410
+les seqs n'existent pas dans le fichier source :['S58248']
+cluster 15554
+les seqs n'existent pas dans le fichier source :['S56580']
+cluster 15619
+les seqs n'existent pas dans le fichier source :['S67981']
+cluster 15644
+les seqs n'existent pas dans le fichier source :['S2352']
+cluster 15689
+les seqs n'existent pas dans le fichier source :['S40928']
+cluster 15754
+les seqs n'existent pas dans le fichier source :['S53105']
+cluster 15793
+les seqs n'existent pas dans le fichier source :['S64097']
+cluster 15916
+les seqs n'existent pas dans le fichier source :['S5279', 'S6735', 'S8287', 'S13572', 'S17184', 'S18597', 'S20253', 'S26151', 'S26804', 'S28763', 'S37921', 'S37929', 'S50026', 'S52010', 'S67623']
+cluster 15962
+les seqs n'existent pas dans le fichier source :['S62577']
+cluster 16249
+les seqs n'existent pas dans le fichier source :['S67993']
+cluster 16379
+les seqs n'existent pas dans le fichier source :['S55779']
+cluster 16512
+les seqs n'existent pas dans le fichier source :['S10831']
+cluster 16543
+les seqs n'existent pas dans le fichier source :['S67734']
+cluster 16598
+les seqs n'existent pas dans le fichier source :['S5197', 'S7263', 'S10859', 'S12519', 'S12842', 'S13565', 'S13577', 'S13971', 'S20581', 'S21704', 'S26443', 'S33425', 'S51927', 'S60384', 'S65315', 'S66701', 'S70029']
+cluster 16963
+les seqs n'existent pas dans le fichier source :['S68495']
+cluster 17013
+les seqs n'existent pas dans le fichier source :['S67565']
+cluster 17039
+les seqs n'existent pas dans le fichier source :['S51873']
+cluster 17177
+les seqs n'existent pas dans le fichier source :['S61781']
+cluster 17197
+les seqs n'existent pas dans le fichier source :['S1346', 'S2237', 'S7267', 'S7571', 'S8390', 'S8477', 'S13457', 'S13618', 'S16132', 'S16327', 'S19475', 'S19619', 'S19775', 'S21285', 'S23097', 'S26108', 'S28641', 'S29013', 'S31960', 'S32322', 'S34339', 'S36957', 'S37621', 'S41962', 'S42611', 'S45318', 'S46716', 'S48181', 'S48268', 'S48469', 'S52566', 'S53874', 'S54779', 'S55646', 'S55719', 'S56351', 'S58907', 'S59412', 'S65841', 'S68593', 'S68902']
+cluster 17262
+les seqs n'existent pas dans le fichier source :['S49726']
+cluster 17397
+les seqs n'existent pas dans le fichier source :['S1459', 'S3208', 'S4327', 'S4897', 'S5423', 'S6605', 'S7462', 'S8167', 'S10292', 'S14717', 'S16387', 'S19411', 'S19477', 'S20268', 'S20481', 'S22186', 'S24638', 'S26426', 'S26606', 'S29248', 'S32030', 'S32058', 'S32276', 'S34571', 'S37686', 'S38608', 'S38944', 'S42284', 'S42574', 'S43115', 'S45276', 'S46625', 'S47901', 'S49666', 'S49735', 'S49759', 'S50278', 'S54693', 'S56628', 'S56639', 'S57989', 'S58297', 'S61764', 'S62802', 'S65480', 'S66117', 'S66271']
+cluster 17765
+les seqs n'existent pas dans le fichier source :['S30749']
+cluster 17798
+les seqs n'existent pas dans le fichier source :['S67124']
+
+
+Problème de longueur des séquences d'un même cluster : 
+
+

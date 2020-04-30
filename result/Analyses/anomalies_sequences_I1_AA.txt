@@ -1,0 +1,161 @@
+Problemes d'existance des séquences : 
+
+
+
+cluster 155
+les seqs n'existent pas dans le fichier source :['S16970']
+cluster 293
+les seqs n'existent pas dans le fichier source :['S10714']
+cluster 381
+les seqs n'existent pas dans le fichier source :['S8951']
+cluster 412
+les seqs n'existent pas dans le fichier source :['S15961']
+cluster 497
+les seqs n'existent pas dans le fichier source :['S646']
+cluster 655
+les seqs n'existent pas dans le fichier source :['S6393']
+cluster 664
+les seqs n'existent pas dans le fichier source :['S7095', 'S7887', 'S15927', 'S19740', 'S23657']
+cluster 814
+les seqs n'existent pas dans le fichier source :['S23498']
+cluster 825
+les seqs n'existent pas dans le fichier source :['S6424']
+cluster 995
+les seqs n'existent pas dans le fichier source :['S24815']
+cluster 1058
+les seqs n'existent pas dans le fichier source :['S12911']
+cluster 1174
+les seqs n'existent pas dans le fichier source :['S18635']
+cluster 1264
+les seqs n'existent pas dans le fichier source :['S1']
+cluster 1376
+les seqs n'existent pas dans le fichier source :['S25949']
+cluster 1421
+les seqs n'existent pas dans le fichier source :['S14433']
+cluster 1521
+les seqs n'existent pas dans le fichier source :['S5075']
+cluster 1552
+les seqs n'existent pas dans le fichier source :['S18659']
+cluster 1610
+les seqs n'existent pas dans le fichier source :['S15175']
+cluster 1638
+les seqs n'existent pas dans le fichier source :['S20548']
+cluster 1743
+les seqs n'existent pas dans le fichier source :['S20397']
+cluster 1935
+les seqs n'existent pas dans le fichier source :['S3801']
+cluster 1978
+les seqs n'existent pas dans le fichier source :['S21073']
+cluster 2150
+les seqs n'existent pas dans le fichier source :['S21206']
+cluster 2175
+les seqs n'existent pas dans le fichier source :['S20882']
+cluster 2279
+les seqs n'existent pas dans le fichier source :['S16888']
+cluster 2356
+les seqs n'existent pas dans le fichier source :['S6242']
+cluster 2358
+les seqs n'existent pas dans le fichier source :['S16430']
+cluster 2370
+les seqs n'existent pas dans le fichier source :['S25813']
+cluster 2513
+les seqs n'existent pas dans le fichier source :['S15396']
+cluster 2543
+les seqs n'existent pas dans le fichier source :['S19569']
+cluster 2583
+les seqs n'existent pas dans le fichier source :['S17327']
+cluster 2677
+les seqs n'existent pas dans le fichier source :['S12640']
+cluster 2699
+les seqs n'existent pas dans le fichier source :['S700']
+cluster 2736
+les seqs n'existent pas dans le fichier source :['S6218']
+cluster 2953
+les seqs n'existent pas dans le fichier source :['S2949', 'S7229']
+cluster 3019
+les seqs n'existent pas dans le fichier source :['S10082']
+cluster 3044
+les seqs n'existent pas dans le fichier source :['S7497']
+cluster 3136
+les seqs n'existent pas dans le fichier source :['S10910']
+cluster 3190
+les seqs n'existent pas dans le fichier source :['S7047']
+cluster 3195
+les seqs n'existent pas dans le fichier source :['S14287']
+cluster 3225
+les seqs n'existent pas dans le fichier source :['S11850']
+cluster 3272
+les seqs n'existent pas dans le fichier source :['S556', 'S3272', 'S6185', 'S8381', 'S11070', 'S11476', 'S22376', 'S23702']
+cluster 3279
+les seqs n'existent pas dans le fichier source :['S2565']
+cluster 3286
+les seqs n'existent pas dans le fichier source :['S7552']
+cluster 3294
+les seqs n'existent pas dans le fichier source :['S9440']
+cluster 3298
+les seqs n'existent pas dans le fichier source :['S8763']
+cluster 3327
+les seqs n'existent pas dans le fichier source :['S10329']
+cluster 3550
+les seqs n'existent pas dans le fichier source :['S12120']
+cluster 3615
+les seqs n'existent pas dans le fichier source :['S9924']
+cluster 3694
+les seqs n'existent pas dans le fichier source :['S80']
+cluster 3696
+les seqs n'existent pas dans le fichier source :['S22135']
+cluster 3698
+les seqs n'existent pas dans le fichier source :['S581']
+cluster 3714
+les seqs n'existent pas dans le fichier source :['S4106']
+cluster 3861
+les seqs n'existent pas dans le fichier source :['S16524']
+cluster 3960
+les seqs n'existent pas dans le fichier source :['S8297', 'S19803']
+cluster 3983
+les seqs n'existent pas dans le fichier source :['S2392']
+cluster 4032
+les seqs n'existent pas dans le fichier source :['S4463']
+cluster 4041
+les seqs n'existent pas dans le fichier source :['S25035']
+cluster 4283
+les seqs n'existent pas dans le fichier source :['S2324']
+cluster 4328
+les seqs n'existent pas dans le fichier source :['S17294']
+cluster 4347
+les seqs n'existent pas dans le fichier source :['S10194']
+cluster 4382
+les seqs n'existent pas dans le fichier source :['S25882']
+cluster 4406
+les seqs n'existent pas dans le fichier source :['S25265']
+cluster 4515
+les seqs n'existent pas dans le fichier source :['S15087']
+cluster 4601
+les seqs n'existent pas dans le fichier source :['S17595']
+cluster 4619
+les seqs n'existent pas dans le fichier source :['S14771']
+cluster 4657
+les seqs n'existent pas dans le fichier source :['S16743']
+cluster 4711
+les seqs n'existent pas dans le fichier source :['S25582']
+cluster 4835
+les seqs n'existent pas dans le fichier source :['S15442']
+cluster 4859
+les seqs n'existent pas dans le fichier source :['S20342']
+cluster 5075
+les seqs n'existent pas dans le fichier source :['S20494']
+cluster 5081
+les seqs n'existent pas dans le fichier source :['S13760']
+cluster 5124
+les seqs n'existent pas dans le fichier source :['S15579']
+cluster 5153
+les seqs n'existent pas dans le fichier source :['S1374']
+cluster 5193
+les seqs n'existent pas dans le fichier source :['S4949']
+cluster 5222
+les seqs n'existent pas dans le fichier source :['S8206']
+
+
+Problème de longueur des séquences d'un même cluster : 
+
+

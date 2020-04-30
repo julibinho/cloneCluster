@@ -1,3 +1,0 @@
-Mauvais résultat du merging : je me suis rendue compte que j'ai utilisé les CDR3 extrait comme cDR3 (donc potentiellements mal coupés...). D'ailleurs sur le repository il n'y a pas les CDR3 atrificiels coupés par IMGT...
-
-
