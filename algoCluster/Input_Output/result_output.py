@@ -10,6 +10,7 @@ def resultat_pour_une_partition(part, i_min):
 				res += x + " "
 			res += "\n"
 	#print res
+	#print(res)
 	return res
 
 def generate_output_text(dico, path): #rassemble toutes les partitions

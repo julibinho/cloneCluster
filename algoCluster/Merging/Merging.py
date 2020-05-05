@@ -71,6 +71,7 @@ def main():
 		#print('graphe OK')
 		partition[cle]=community.best_partition(graphe[cle])
 	#print('fini')
+	#print(partition)
 	result_output.generate_output_text(partition, path_to_result)
 	exec_time = time.time() - start_time
 	print('temps d\'execution : ', exec_time)
