@@ -29,6 +29,7 @@ def distance_Hamming(seq1, seq2):
     for i in range (len(seq1)):
         if seq1[i]==seq2[i]: # Objectif : les séquences identiques soient plus liées entre elles que les séquences différentes
             distance +=1
+    distance = distance/ len(seq1)
     return(distance)
 
 
