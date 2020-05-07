@@ -1,0 +1,19 @@
+The main idead can be summarized as follows : 
+1-Compute  a  similarity  matrix  between  each  pair  of  DNA  sequences, i.e., provide a matrix W of size n×n,  where n is the 
+number of se-quences, which is such that Wi,j increases with the “similarity” between sequences number i and j.
+
+2-Diagonalise the Laplacian matrix of W.  By such an operation, DNA sequences are mapped to elements of a given vector space, 
+whose dimension is much smaller than the sequence lengths. This reduction of the problem dimension is a key element that usually 
+has a great impact on both visualization and clustering.  The combination of the twostages above is often referred as the 
+“Laplacian eigenmap” approach.
+
+3-Cluster the transformed data using a Gaussian Mixture Mode
+The protocol used to achieve Clusteing throught GMM is based on the following article : 
+https://www.ncbi.nlm.nih.gov/pubmed/29288886
+
+The Clutering Tools used in this protocol are available at :
+https://github.com/SergeMOULIN/clustering-tool-for-nucleotide-sequences-using-Laplacian-Eigenmaps-and-Gaussian-Mixture-Models
+
+PyCogent module needed is available at :
+https://github.com/pycogent/pycogent
+
