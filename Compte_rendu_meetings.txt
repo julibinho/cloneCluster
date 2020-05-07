@@ -34,3 +34,12 @@ Quentin:
 Juliana :
 - créer un exemple de calcul profil-profil 
 - chercher des algos pour faire l'optimisation d'autres paramètres que la modularité
+
+
+7 Mai :
+Lisa :
+- Tester toutes les formules de comparaison de profil
+Quentin :
+- Implémenter l'usage du package de clustering par mixture gaussienne
+Général :
+Penser à la façon de comparer des profils/des séquences consensus de tailles différentes
