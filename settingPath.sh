@@ -190,7 +190,16 @@ fi
 ######################################## MERGING ########################################################################### 
 if [ "$algo" = "m" ]
 then
-    export ALGO="$PWD/algoCluster/Merging/Merging.py"
+    read -p 'Entrez le type de merging à utiliser : sur séquences consensus (c) ou sur profile (p) : ' merg
+    if [ "$merg" = "c" ]
+    then
+        merg=consensus
+    fi
+    if [ "$merg" = "p" ]
+    then
+        merg=profile
+    fi
+    export ALGO="$PWD/algoCluster/Merging/Merging_$merg.py"
     read -p 'Entrez le type de données à utiliser : réelles (r) ou artificielles (a) : ' caract
     if [ "$caract" = "a" ] #données artificielles
     then
@@ -207,7 +216,7 @@ then
         
             export CLUST="$PWD/data/Tools_output/IMGT_output/Simulated_data/mono_simp_indel_imgt_Fo.txt"
             export DATA="$PWD/data/Artificial/Extracted_CDR3/IMGT/mono_simu_6_Junction_CDR3_NA.txt"
-            export RESULT="$PWD/result/Merging/Artificial/mono_merging_IMGT_cdr3.txt"
+            export RESULT="$PWD/result/Merging/Artificial/mono_merging_$merg""_IMGT_cdr3.txt"
 	    fi
 	    if [ "$patient" = "o" ]
         then
@@ -215,7 +224,7 @@ then
         
             export CLUST="$PWD/data/Tools_output/IMGT_output/Simulated_data/oligo_simp_indel_imgt_Fo.txt"
             export DATA="$PWD/data/Artificial/Extracted_CDR3/IMGT/oligo_simu_6_Junction_CDR3_NA.txt"
-            export RESULT="$PWD/result/Merging/Artificial/oligo_merging_IMGT_cdr3.txt"
+            export RESULT="$PWD/result/Merging/Artificial/oligo_merging_$merg""_IMGT_cdr3.txt"
 	    fi
 	    if [ "$patient" = "p" ]
         then
@@ -223,7 +232,7 @@ then
         
             export CLUST="$PWD/data/Tools_output/IMGT_output/Simulated_data/poly_simp_indel_imgt_Fo.txt"
             export DATA="$PWD/data/Artificial/Extracted_CDR3/IMGT/poly_simu_6_Junction_CDR3_NA.txt"
-            export RESULT="$PWD/result/Merging/Artificial/poly_merging_IMGT_cdr3.txt"
+            export RESULT="$PWD/result/Merging/Artificial/poly_merging_$merg""_IMGT_cdr3.txt"
 	    fi
 
     fi
@@ -236,7 +245,7 @@ then
         
         export CLUST="$PWD/data/Tools_output/IMGT_output/Real_data/I$patient""_IMGT_Fo_cleaned.txt"
         export DATA="$PWD/data/Real/Extracted_CDR3/Extracted_by_IMGT/I$patient""_CDR3_NA.txt"
-        export RESULT="$PWD/result/Merging/Real/I$patient""_merging_IMGT_cdr3.txt"
+        export RESULT="$PWD/result/Merging/Real/I$patient""_merging_$merg""_IMGT_cdr3.txt"
         
     fi
 fi
