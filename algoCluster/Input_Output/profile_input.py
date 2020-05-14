@@ -52,20 +52,47 @@ def get_Q(P):
 		freq = coll.Counter(col_i) 
 		#print(freq)
 		for j, a in enumerate(nucleotides): 
-			#print(j,a)
-			PWM[j][i] = freq[a]
-	PWM = PWM + 1            
+			if a in freq:
+				PWM[j][i] = freq[a]
+			elif a.upper() in freq:
+				PWM[j][i] = freq[a.upper()]
+			else:
+				PWM[j][i] = freq[a.lower()]
+	PWM = PWM + 1 
+	#print(PWM)
 	return (PWM)/(np.sum(PWM, axis=0))
 	
+def wa(Q, p):
+    L = np.size(Q,1)
+    N = np.size(Q,0)
+    W = np.zeros((N, L))
+    s=0
+    for j in range(L):
+        for i in range(N):
+            W[i][j] = np.log(Q[i][j]/p[i])
+    return W
+
+def p_calcule(PWM):
+	return [(sum(PWM[i,:])/np.size(PWM,1)) for i in range(len(nucleotides))]
 	
-	
-def distance_profiles(P1, P2):
-    #print('nouvelle distance')
+def distance_profiles10(P1, P2): # formule 10
+    #print('dans distance 10')
+    #print(P1,P2)
     Q1 = get_Q(P1)
     Q2 = get_Q(P2)
-    #print('\nP1:', P1,'\tP2:', P2)
-    #print('\nQ1:', Q1,'\tQ2:', Q2)
+    #print(Q1, '\n',Q2)
     return dotProd(Q1, Q2)
+
+def distance_profiles11(P1, P2): # formule 11
+    #print('dans distance 11')
+    #print(P1,P2)
+    Q1 = get_Q(P1)
+    Q2 = get_Q(P2)
+    p1 = p_calcule(Q1)
+    p2 = p_calcule(Q2)
+    W1 = wa(Q1,p1)
+    W2 = wa(Q2,p2)
+    return dotProd(W1, W2)
 
 
 
@@ -145,7 +172,7 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 			G_courant.add_node(x) #certaines séquences sont les seules de leur taille
 			for y in d2[w].keys() : #on ne calcule la distance que pour les séquences qui n'ont pas encore étées parcourues. 
 			##############
-				d = distance_profiles(dico[w][y], seq)
+				d = distance_profiles11(dico[w][y], seq)
 				G_courant.add_edge(x,y)
 				G_courant[x][y]['weight'] = d
 		res[w] = G_courant
@@ -158,12 +185,20 @@ def generate_graphs_consensus(path_to_file,path_to_data):
 
 
 def main():
+    void()
     #print(alignement(nucleotides,1,-2,'catgac','tctgaac',-1))
-    res = generate_graphs_consensus("/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I1_IMGT_Fo.txt", "/home/lisa/Programmation/cloneCluster/data/Real/Extracted_CDR3/Extracted_by_IMGT/I1_oligo_CDR3_NA.txt")
+    #res = generate_graphs_consensus("/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I1_IMGT_Fo.txt", "/home/lisa/Programmation/cloneCluster/data/Real/Extracted_CDR3/Extracted_by_IMGT/I1_oligo_CDR3_NA.txt")
     #reader("/home/lisa/Programmation/cloneCluster/data/Tools_output/IMGT_output/Real_data/I1_IMGT_Fo.txt", "/home/lisa/Programmation/cloneCluster/data/Real/Extracted_CDR3/Extracted_by_IMGT/I1_oligo_CDR3_NA.txt")
     #res = create_profile(['A', 'B', 'C'], {'A':'ATG', 'B':'CTT', 'C':'ACT'})
     #print(res)
     #print(get_Q(res))
+    #P1 = np.array([['A', 'T', 'G'], ['C',  'T', 'T'], ['A',  'C', 'T']])
+    #P2 = np.array([['T', 'G', 'C'], ['T',  'A', 'C'], ['C',  'G', 'C']])
+    #P2 = np.array([['T', 'G', 'C'], ['T',  'G', 'C'], ['G',  'A', 'A']])
+    #print('dist', distance_profiles10(P1,P1))
+    #print(distance_profiles10(P1,P2))
+    #print(distance_profiles11(P1,P1))
+    #print(distance_profiles11(P1,P2))
     
     
 if __name__ == "__main__":
