@@ -66,11 +66,13 @@ def main():
 	#print(dico)
 	partition = {}
 	for cle, valeur in dico.items():
-		#print('séquences CDR3 de longueur : ', cle)
+		print('séquences CDR3 de longueur : ', cle)
 		#print(valeur)
 		graphe = profile.instanciation_des_graphes_cle_valeur({cle:valeur})
 		#print('graphe OK')
+		#print(graphe, cle, valeur)
 		partition[cle]=community.best_partition(graphe[cle])
+		#print(partition[cle])
 	#print('fini')
 	#print(list(partition.keys()))
 	result_output.generate_output_text(partition, path_to_result)

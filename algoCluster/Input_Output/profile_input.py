@@ -88,7 +88,7 @@ def distance_profiles11_part(P1, P2): # formule 11
     W2 = wa(Q2,p2)
     return dotProd(W1, W2)
     
-def distance_profiles11(P1, P2, p): # formule 11
+def distance_profiles11(P1, P2, p): # formule 11, avec p qui est représentatif de tout l'env
     Q1 = get_Q(P1)
     Q2 = get_Q(P2)
     #print(Q1)
@@ -96,6 +96,7 @@ def distance_profiles11(P1, P2, p): # formule 11
     W1 = wa(Q1,p)
     W2 = wa(Q2,p)
     return dotProd(W1, W2)
+    
 def normalize(m, M, s): #normalise le score s selon le m : minimum et M : Maximum
         return (s -m)/(M -m)
 
@@ -199,17 +200,23 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 					M = d
 				if d < m:
 					m = d
+		print('\n\n',m,M)
 		for x in dico[w].keys():
 			seq = d2[w].pop(x) # on retire la séquences courante du dictionnaire d2, qui mémorise les séquences déjà parcourues
 			G_courant.add_node(x) #certaines séquences sont les seules de leur taille
 			for y in d2[w].keys() : #on ne calcule la distance que pour les séquences qui n'ont pas encore étées parcourues. 
 			##############
 				d = distance_profiles11(dico[w][y], seq,p)
+				#d = normalize(m,M,d)
 				#print(d)
+				#G_courant.add_edge(x,y)
+				#G_courant[x][y]['weight'] = d
+				###############################
+				print(d)
 				d= normalize(m,M,d)
-				#print(d)
+				print(d)
 				count_tot +=1
-				if d >=0:
+				if d >=0.2:
 					G_courant.add_edge(x,y)
 					G_courant[x][y]['weight'] = d
 				else :
