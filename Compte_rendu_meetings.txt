@@ -43,3 +43,8 @@ Quentin :
 - Implémenter l'usage du package de clustering par mixture gaussienne
 Général :
 Penser à la façon de comparer des profils/des séquences consensus de tailles différentes
+
+14 Mai :
+Finir si possible cette semaine pour pouvoir rédiger le rapport d'ici le 1er Juin
+-Tester un de mettre un seuil pour les scores pour réduire le nombres de cluster
+-Faire tourner l'algo de gaussian mixture

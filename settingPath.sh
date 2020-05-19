@@ -62,39 +62,41 @@ then
         export TIME="$PWD/evaluation/Exec_time/Exec_time.py"
         if [ "$long" = "e" ] #séquences entières
         then
+            echo $patient
             if [ "$patient" = "mono" ] #monoclonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I3_mono.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I3_$patient""clonal_simp_indel.txt"
 	        fi
 	        if [ "$patient" = "oligo" ] #oligo clonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I1_oligo.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I1_$patient""clonal_simp_indel.txt"
 	        fi
 	        if [ "$patient" = "poly" ] #polyclonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I4_poly.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I4_$patient""clonal_simp_indel.txt"
 	        fi
         fi
 
         if [ "$long" = "c" ] #CDR3
         then
-            if [ "$patient" = "m" ] #monoclonal
+            echo $patient
+            if [ "$patient" = "mono" ] #monoclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I3_CDR3_mono.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I3_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
-	        if [ "$patient" = "o" ] #oligoclonal
+	        if [ "$patient" = "oligo" ] #oligoclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I1_CDR3_oligo.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I1_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
-	        if [ "$patient" = "p" ] #polyclonal
+	        if [ "$patient" = "poly" ] #polyclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I4_CDR3_poly.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I4_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
         fi
     fi
@@ -152,36 +154,36 @@ then
             if [ "$patient" = "mono" ] #monoclonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I3_mono.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I3_$patient""clonal_simp_indel.txt"
 	        fi
 	        if [ "$patient" = "oligo" ] #oligo clonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I1_oligo.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I1_$patient""clonal_simp_indel.txt"
 	        fi
 	        if [ "$patient" = "poly" ] #polyclonal
             then
                 export DATA="$PWD/data/Real/EntireSeq/I4_poly.fa"
-	            export RESULT="$PWD/result/Real/$algo/EntireSeq/$patient""clonal_simp_indel.txt"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I4_$patient""clonal_simp_indel.txt"
 	        fi
         fi
 
         if [ "$long" = "c" ] #CDR3
         then
-            if [ "$patient" = "m" ] #monoclonal
+            if [ "$patient" = "mono" ] #monoclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I3_CDR3_mono.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I3_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
-	        if [ "$patient" = "o" ] #oligoclonal
+	        if [ "$patient" = "oligo" ] #oligoclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I1_CDR3_oligo.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I1_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
-	        if [ "$patient" = "p" ] #polyclonal
+	        if [ "$patient" = "poly" ] #polyclonal
             then
                 export DATA="$PWD/data/Real/Extracted_CDR3/I4_CDR3_poly.fa"
-	            export RESULT="$PWD/result/Real/$algo/CDR3/$patient""clonal_simp_indel_cdr3.txt"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I4_$patient""clonal_simp_indel_cdr3.txt"
 	        fi
         fi
     fi
