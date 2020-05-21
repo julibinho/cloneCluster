@@ -218,7 +218,7 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 				    d= normalize(m,M,d)
 				#print(d)
 				count_tot +=1
-				if d >=-1:
+				if d >=0.5:
 					G_courant.add_edge(x,y)
 					G_courant[x][y]['weight'] = d
 				else :
