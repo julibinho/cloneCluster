@@ -13,29 +13,6 @@ import matplotlib.ticker as mt
 import cogent.app.muscle_v38 as muscle
 from Bio import Entrez
 
-def main ():
-    args = parse_arguments()
-    path_to_file = args.path_to_file
-    path_to_result = args.result
-    liste = path_to_file
-    dico_des_mat_dist,dico_des_seqs=graph_input.generate_matrix(liste)
-    for cle_courante in dico_des_mat_dist.keys():
-        L = dico_des_mat_dist[cle_courante]
-        L = np.asmatrix(L)
-        groupes = Gclust(liste,drawgraphs=False) #,nbClusters='AIC')
-
-    with open("PWD/result/Artificial/Gclust/CDR3/Clustering.txt", "r+") as fichier_bad:
-        cmpt=0
-        for line in fichier_bad:
-            fichier_good = open (path_to_result, "a")
-            line = str(cmpt) + '\t' + line
-            line = line.replace('[','')
-            line = line.replace(']','')
-            line = line.replace(',','')
-            line = line.replace("'",'')
-            cmpt+=1
-            fichier_good.write(line)
-            fichier_good.close()
 ##############################################################
 #   Starting code 
 ##############################################################
@@ -325,7 +302,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
         show()
 
     i = chooseNbEigenvectors(vaP, N, nbEVMethod, nbEVCutOff)
-    print "The " + str(i) + " first eigenvalues have been selected."
+    print ("The " + str(i) + " first eigenvalues have been selected.")
     
     vePclasses=[]
     for j in range(N):
@@ -432,7 +409,29 @@ def Gclust(liste, nbClusters='BIC', drawgraphs=True, nbEVMethod = 'delta', nbEVC
 ##### IV) Main function
 #########################################################################################
 
+def main ():
+    args = parse_arguments()
+    path_to_file = args.path_to_file
+    path_to_result = args.result
+    liste = path_to_file
+    dico_des_mat_dist,dico_des_seqs=graph_input.generate_matrix(liste)
+    for cle_courante in dico_des_mat_dist.keys():
+        L = dico_des_mat_dist[cle_courante]
+        L = np.asmatrix(L)
+        groupes = Gclust(liste,drawgraphs=False) #,nbClusters='AIC')
 
+    with open("PWD/result/Artificial/Gclust/CDR3/Clustering.txt", "r+") as fichier_bad:
+        cmpt=0
+        for line in fichier_bad:
+            fichier_good = open (path_to_result, "a")
+            line = str(cmpt) + '\t' + line
+            line = line.replace('[','')
+            line = line.replace(']','')
+            line = line.replace(',','')
+            line = line.replace("'",'')
+            cmpt+=1
+            fichier_good.write(line)
+            fichier_good.close()
 
 
 if __name__ == "__main__":
