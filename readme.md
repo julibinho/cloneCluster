@@ -46,3 +46,11 @@ $python3 $GRAPH -r $RESULT -t $REF
 $python3 $ANALYSIS -p $RESULT -t $REF -d $DATA
 ```
 
+## For Gclust only on Artificial CDR3 sequences of IMGT :
+
+```diff
+$python3 $ALGO -p $DATA_IMGT -r $RESULT
+```
+```diff
+$python3 $F1 -p $RESULT -t $REF_IMGT
+```

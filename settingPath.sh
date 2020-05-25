@@ -5,7 +5,7 @@
 #read -p 'Quel fichier souhaitez vous utiliser ? ' fichier
 #DATA="data/artficial/Extracted_CDR3/$fichier.fa"
 
-read -p 'Entrez l algorithme que vous souhaitez utiliser parmis Louvain (l), SpectralClustering (s) ou un merging sur les données IMGT (m) : ' algo 
+read -p 'Entrez l algorithme que vous souhaitez utiliser parmis Louvain (l), SpectralClustering (s), Gclust (g) ou un merging sur les données IMGT (m) : ' algo 
 
 ##################################### LOUVAIN #########################################
 if [ "$algo" = "l" ]
@@ -252,4 +252,94 @@ then
     fi
 fi
     
+#################################### GCLUST ###############################################
+if [ "$algo" = "g" ]
+then
+    algo="Gclust"
+    export ALGO="$PWD/algoCluster/$algo/gclust.py"
+    read -p 'Entrez le type de patient à étudier : monoclonal (m), oligoclonal (o), ou polyclonal (p) : ' patient
+    if [ "$patient" = "m" ]
+    then
+        patient="mono"
+    fi
+    if [ "$patient" = "o" ]
+    then
+        patient="oligo"
+    fi
+    if [ "$patient" = "p" ]
+    then
+        patient="poly"
+    fi
+    read -p 'Entrez le type de données à utiliser : réelles (r) ou artificielles (a) : ' caract
+    read -p 'Entrez la longueur des séquences à utiliser : séquences entières (e) ou CDR3 (c) : ' long
+    if [ "$caract" = "a" ] #données artificielles
+    then
+        export F1="$PWD/evaluation/F1-score/cluster_based_fscore.py"
+        export SILHOUETTE="$PWD/evaluation/Silhouette/Silhouette.py"
+        export TIME="$PWD/evaluation/Exec_time/Exec_time.py"
+        export RECALL="$PWD/evaluation/Analysis-Recall/analysis-recall.py"
+        export GRAPH="$PWD/evaluation/Visualisation/show-graph.py"
+        export ANALYSIS="$PWD/evaluation/Analysis-Recall/essai2.py"
+        export REF="$PWD/data/Artificial/True_clusters/$patient""clonal_simp_indel_true_clusters.txt"
+        
+        if [ "$long" = "e" ] #séquences entières
+        then
+	        export DATA="$PWD/data/Artificial/EntireSeq/$patient""clonal_simp_indel.fa"
+	        export RESULT="$PWD/result/Artificial/$algo/EntireSeq/$patient""clonal_simp_indel_cdr3.fa_Resultats_GClustering.txt"
+            export RESULT_INTER="$PWD/result/Artificial/$algo/EntireSeq/Clustering.txt"
+            
+        fi
 
+        if [ "$long" = "c" ] #CDR3
+        then
+	        export DATA="$PWD/data/Artificial/Extracted_CDR3/Vidjil/$patient""clonal_simp_indel_cdr3.fa"
+	        export RESULT="$PWD/result/Artificial/$algo/CDR3/$patient""clonal_simp_indel_cdr3.fa_Resultats_GClustering.txt"
+            export RESULT_INTER="$PWD/result/Artificial/$algo/CDR3/Clustering.txt"
+            export DATA_IMGT="$PWD/data/Artificial/Extracted_CDR3/IMGT/$patient""_simu_6_Junction_CDR3_NA.txt"
+            export REF_IMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$patient""_simp_indel_imgt_Fo.txt"
+        fi
+    fi
+
+    if [ "$caract" = "r" ] #données réelles
+    then
+        export SILHOUETTE="$PWD/evaluation/Silhouette/Silhouette.py"
+        export TIME="$PWD/evaluation/Exec_time/Exec_time.py"
+        if [ "$long" = "e" ] #séquences entières
+        then
+            if [ "$patient" = "mono" ] #monoclonal
+            then
+                export DATA="$PWD/data/Real/EntireSeq/I3_mono.fa"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I3_$patient""clonal_simp_indel.txt"
+	        fi
+	        if [ "$patient" = "oligo" ] #oligo clonal
+            then
+                export DATA="$PWD/data/Real/EntireSeq/I1_oligo.fa"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I1_$patient""clonal_simp_indel.txt"
+	        fi
+	        if [ "$patient" = "poly" ] #polyclonal
+            then
+                export DATA="$PWD/data/Real/EntireSeq/I4_poly.fa"
+	            export RESULT="$PWD/result/Real/$algo/EntireSeq/I4_$patient""clonal_simp_indel.txt"
+	        fi
+        fi
+
+        if [ "$long" = "c" ] #CDR3
+        then
+            if [ "$patient" = "mono" ] #monoclonal
+            then
+                export DATA="$PWD/data/Real/Extracted_CDR3/I3_CDR3_mono.fa"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I3_$patient""clonal_simp_indel_cdr3.txt"
+	        fi
+	        if [ "$patient" = "oligo" ] #oligoclonal
+            then
+                export DATA="$PWD/data/Real/Extracted_CDR3/I1_CDR3_oligo.fa"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I1_$patient""clonal_simp_indel_cdr3.txt"
+	        fi
+	        if [ "$patient" = "poly" ] #polyclonal
+            then
+                export DATA="$PWD/data/Real/Extracted_CDR3/I4_CDR3_poly.fa"
+	            export RESULT="$PWD/result/Real/$algo/CDR3/I4_$patient""clonal_simp_indel_cdr3.txt"
+	        fi
+        fi
+    fi
+fi

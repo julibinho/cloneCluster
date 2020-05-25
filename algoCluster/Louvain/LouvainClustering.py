@@ -38,7 +38,7 @@ def parse_arguments():
 #   Appelé par le module TIME
 #############################################################
 
-def exec(path_to_file): # utilisé par Exec_Time pour timer l'algo
+def execution_time(path_to_file): # utilisé par Exec_Time pour timer l'algo
 	dico_des_graphes, dico_init = graph_input.generate_graphs_and_init(path_to_file)
 	
 	partitions = {}
