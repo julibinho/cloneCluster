@@ -6,6 +6,7 @@
 $. ./settingPath.sh
 $python3 $ALGO -p $DATA -r $RESULT 
 ```
+Warning : If using Gclust algo : run with Python2 and not Python3
 ### For a merging algorithm :
 
 ```diff
@@ -49,7 +50,7 @@ $python3 $ANALYSIS -p $RESULT -t $REF -d $DATA
 ## For Gclust only on Artificial CDR3 sequences of IMGT :
 
 ```diff
-$python3 $ALGO -p $DATA_IMGT -r $RESULT
+$python2 $ALGO -p $DATA_IMGT -r $RESULT
 ```
 ```diff
 $python3 $F1 -p $RESULT -t $REF_IMGT
