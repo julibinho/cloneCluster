@@ -286,17 +286,23 @@ then
         then
 	        export DATA="$PWD/data/Artificial/EntireSeq/$patient""clonal_simp_indel.fa"
 	        export RESULT="$PWD/result/Artificial/$algo/EntireSeq/$patient""clonal_simp_indel_cdr3.fa_Resultats_GClustering.txt"
+<<<<<<< HEAD
             export RESULT_INTER="$PWD/result/Artificial/$algo/EntireSeq/Clustering.txt"
             
+=======
+>>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
         fi
 
         if [ "$long" = "c" ] #CDR3
         then
 	        export DATA="$PWD/data/Artificial/Extracted_CDR3/Vidjil/$patient""clonal_simp_indel_cdr3.fa"
 	        export RESULT="$PWD/result/Artificial/$algo/CDR3/$patient""clonal_simp_indel_cdr3.fa_Resultats_GClustering.txt"
+<<<<<<< HEAD
             export RESULT_INTER="$PWD/result/Artificial/$algo/CDR3/Clustering.txt"
             export DATA_IMGT="$PWD/data/Artificial/Extracted_CDR3/IMGT/$patient""_simu_6_Junction_CDR3_NA.txt"
             export REF_IMGT="$PWD/data/Tools_output/IMGT_output/Simulated_data/$patient""_simp_indel_imgt_Fo.txt"
+=======
+>>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
         fi
     fi
 

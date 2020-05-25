@@ -100,7 +100,7 @@ def distance_profiles11(P1, P2, p): # formule 11, avec p qui est représentatif 
 def normalize(m, M, s): #normalise le score s selon le m : minimum et M : Maximum
         return (s -m)/(M -m)
 
-def p_generalR(ref):
+def p_generalR(ref): #prend un objet du type {id:seq}
     count = [1]*q
     tot=q
     for s in ref.values():
@@ -111,9 +111,9 @@ def p_generalR(ref):
         count[i] = count[i]/tot
     return count
     
-def p_generalD(dico):
+def p_generalD(dico):# prend un objet du type {taille:{cluster:profile}}
     count = [1]*q
-    tot=q
+    tot=1
     for w in dico.keys():
         for p in dico[w].values():
             for s in p:
@@ -180,7 +180,7 @@ def reader(path_to_file, path_to_data):  #equivalent de tri_cle_valeur dans grap
                     clusters[len(profile[0])][to_string(seqs)] = profile
     return clusters 
     
-
+dis_11 = True
 def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnaire avec des profiles
 	res = {}
 	p = p_generalD(dico)
@@ -191,16 +191,17 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 		G_courant = nx.Graph()
 		m = math.inf
 		M = -math.inf
-		for x in dico[w].keys():
-			seq = d2[w][x]
-			G_courant.add_node(x) 
-			for y in d2[w].keys() : 
-				d = distance_profiles11(dico[w][y], seq,p)
-				if d > M:
-					M = d
-				if d < m:
-					m = d
-		print('\n\n',m,M)
+		if dis_11 :
+		    for x in dico[w].keys():
+			    seq = d2[w][x]
+			    G_courant.add_node(x) 
+			    for y in d2[w].keys() : 
+			    	d = distance_profiles11(dico[w][y], seq,p)
+			    	if d > M:
+			    		M = d
+			    	if d < m:
+			    		m = d
+		#print('\n\n',m,M)
 		for x in dico[w].keys():
 			seq = d2[w].pop(x) # on retire la séquences courante du dictionnaire d2, qui mémorise les séquences déjà parcourues
 			G_courant.add_node(x) #certaines séquences sont les seules de leur taille
@@ -212,11 +213,12 @@ def instanciation_des_graphes_cle_valeur(dico): #prends en entrée un dictionnai
 				#G_courant.add_edge(x,y)
 				#G_courant[x][y]['weight'] = d
 				###############################
-				print(d)
-				d= normalize(m,M,d)
-				print(d)
+				#print(d)
+				if dis_11:
+				    d= normalize(m,M,d)
+				#print(d)
 				count_tot +=1
-				if d >=0.2:
+				if d >=0.5:
 					G_courant.add_edge(x,y)
 					G_courant[x][y]['weight'] = d
 				else :
@@ -250,17 +252,20 @@ def main():
     P2 = np.array([['T', 'A', 'T'], ['T',  'A', 'T'], ['T',  'A', 'T'], ['T',  'A', 'T']])   
     P3 = np.array([['T', 'T', 'T'], ['T',  'T', 'T'], ['T',  'T', 'T'], ['T',  'T', 'T']]) 
     ref = {1:'ATG', 2: 'ATG',3:'ATG',4:'ATG',5:'TAT',6:'TAT',7:'TAT',8:'TAT', 9:'TTT',10:'TTT',11:'TTT',12:'TTT'}
-    print(p_generalR(ref))
-    print(p_generalD({3:{1: P1, 2:P2, 3:P3}}))
-    
+    #print(p_generalR(ref))
+
+    P1 = np.array([['A', 'T', 'G'], ['C',  'T', 'T'], ['A',  'C', 'T']])
+    P2 = np.array([['T', 'G', 'C'], ['T',  'A', 'C'], ['C',  'G', 'C']])
+    P3 = np.array([['T', 'T', 'T'], ['T',  'G', 'T'], ['G',  'T', 'T']])
     p = p_generalD({3:{1: P1, 2:P2, 3:P3}})
-    print('part', distance_profiles11_part(P1,P1))
-    print('norm', distance_profiles11(P1,P1, p))
-    print(distance_profiles11(P2,P2, p))
-    print(distance_profiles11(P3,P3, p))
-    print(distance_profiles11(P1,P2, p))
-    print(distance_profiles11(P1,P3, p))
-    print(distance_profiles11(P3,P2, p))
+    print(p_generalD({3:{1: P1, 2:P2, 3:P3}}))
+    print(P1, P2, P3)
+    print('P1 P1 ', distance_profiles11(P1,P1, p))
+    print('P2 P2 ', distance_profiles11(P2,P2, p))
+    print('P3 P3 ', distance_profiles11(P3,P3, p))
+    print('P1 P2 ', distance_profiles11(P1,P2, p))
+    print('P1 P3 ', distance_profiles11(P1,P3, p))
+    print('P3 P2 ', distance_profiles11(P3,P2, p))
     
 if __name__ == "__main__":
     main()
