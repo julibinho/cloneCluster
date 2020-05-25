@@ -53,5 +53,5 @@ $python3 $ANALYSIS -p $RESULT -t $REF -d $DATA
 $python2 $ALGO -p $DATA_IMGT -r $RESULT
 ```
 ```diff
-$python3 $F1 -p $RESULT -t $REF_IMGT
+$python3 $F1 -p $RESULT -t $REF
 ```
