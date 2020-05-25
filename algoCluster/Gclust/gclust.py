@@ -22,7 +22,6 @@ def parse_arguments():
 	parser.add_argument("-r","--result",help="""Ou doit-on ranger le résultat ?""")
 	return parser.parse_args()
 
-<<<<<<< HEAD
 #############################################################
 #   Appelé par le module TIME
 #############################################################
@@ -34,10 +33,6 @@ def execution_time(path_to_file):
         L = np.asmatrix(L)
         groupes = Gclust(L,cle_courante,dico_des_mat_dist,dico_des_seqs,liste,drawgraphs=False,nbClusters='BIC')
     return 0
-=======
-
-
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
 #####################################################
 ## I)  Pretreatment, create a similarity matrix :
 #####################################################
@@ -97,11 +92,7 @@ def matriceDistances(dicoMuscle , nc):
     Matrix = np.asmatrix(Matrix)
     return Matrix
 
-<<<<<<< HEAD
 def similarity(L,cle_courante,dico_des_mat_dist,dico_des_seqs,liste):
-=======
-def similarity(liste):
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     '''
     This function returns the similarity matrix.
     Input:
@@ -285,16 +276,10 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
         for i in range(1):
             clusters[0].append(refs[i])    
         clustersString = str(clusters[0]) +'\n'
-<<<<<<< HEAD
         fichier = open(AddToNamesOfOutputs + os.environ["RESULT_INTER"] , "a")
         fichier.write(clustersString)
         fichier.close()
         print(str(1) + " cluster a été etabli.")
-=======
-        fichier = open(AddToNamesOfOutputs + 'Clustering.txt' , "a")
-        fichier.write(clustersString)
-        fichier.close()
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
         return clusters
 
     N = w.shape[0]
@@ -327,11 +312,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
         show()
 
     i = chooseNbEigenvectors(vaP, N, nbEVMethod, nbEVCutOff)
-<<<<<<< HEAD
     #print "The " + str(i) + " first eigenvalues have been selected."
-=======
-    print ("The " + str(i) + " first eigenvalues have been selected.")
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     
     vePclasses=[]
     for j in range(N):
@@ -357,10 +338,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
 
     if (nbClusters != 'BIC' and nbClusters=='AIC'):
         k = nbClusters
-<<<<<<< HEAD
     
-=======
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
 
     if (drawgraphs==True and (nbClusters=='BIC' or nbClusters=='AIC')) :
         Min = (max(0, k-5))
@@ -387,10 +365,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
     for i in range(len(p0)):
         p[i] = argmax (p0[i])
     
-<<<<<<< HEAD
     
-=======
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     clusters=[]
     for i in range(k):
         clusters.append([])
@@ -398,20 +373,13 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
     for i in range(N):
         clusters[int(p[i])].append(refs[i])
 
-<<<<<<< HEAD
     print(str(k) + " clusters etablis.")
 
-=======
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     clustersString = str(clusters[0])
 
     if w.all() == 0 and len(w)<=2:
         clustersString = str(clusters[0] +clusters[1]) +'\n'
-<<<<<<< HEAD
         fichier = open(AddToNamesOfOutputs + os.environ["RESULT_INTER"] , "a")
-=======
-        fichier = open(AddToNamesOfOutputs + 'Clustering.txt' , "a")
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
         fichier.write(clustersString)
         fichier.close()
         return clusters
@@ -419,11 +387,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
         for i in range(1, k):
             clustersString =clustersString + '\n' + str(clusters[i])
         clustersString += '\n' 
-<<<<<<< HEAD
         fichier = open(AddToNamesOfOutputs + os.environ["RESULT_INTER"] , "a")
-=======
-        fichier = open(AddToNamesOfOutputs + 'Clustering.txt' , "a")
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
         fichier.write(clustersString)
         fichier.close()
         return clusters
@@ -438,11 +402,7 @@ def LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, Add
 #######################################################################################################
 
 
-<<<<<<< HEAD
 def Gclust(L,cle_courante,dico_des_mat_dist,dico_des_seqs,liste, nbClusters='BIC', drawgraphs=True, nbEVMethod = 'delta', nbEVCutOff = 'default', AddToNamesOfOutputs = ''):
-=======
-def Gclust(liste, nbClusters='BIC', drawgraphs=True, nbEVMethod = 'delta', nbEVCutOff = 'default', AddToNamesOfOutputs = ''):
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     '''
     The main function.
     Input : 
@@ -453,11 +413,7 @@ def Gclust(liste, nbClusters='BIC', drawgraphs=True, nbEVMethod = 'delta', nbEVC
     Outupt :
     - groupes : The clustering.
     '''
-<<<<<<< HEAD
     w, refs = similarity(L,cle_courante,dico_des_mat_dist,dico_des_seqs,liste)
-=======
-    w, refs = similarity(liste)
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
     groupes = LaplacianAndGMM(w, refs, nbClusters, drawgraphs, nbEVMethod, nbEVCutOff, AddToNamesOfOutputs)
     return groupes
 
@@ -474,7 +430,6 @@ def main ():
     liste = path_to_file
     dico_des_mat_dist,dico_des_seqs=graph_input.generate_matrix(liste)
     for cle_courante in dico_des_mat_dist.keys():
-<<<<<<< HEAD
         print("Clustering pour " + str(len(dico_des_seqs[cle_courante])) + " sequences de longueur " + str(cle_courante) + " :")
         L = dico_des_mat_dist[cle_courante]
         L = np.asmatrix(L)
@@ -484,16 +439,6 @@ def main ():
         cmpt=0
         fichier_good = open (path_to_result, "w")
         for line in fichier_bad:
-=======
-        L = dico_des_mat_dist[cle_courante]
-        L = np.asmatrix(L)
-        groupes = Gclust(liste,drawgraphs=False) #,nbClusters='AIC')
-
-    with open("PWD/result/Artificial/Gclust/CDR3/Clustering.txt", "r+") as fichier_bad:
-        cmpt=0
-        for line in fichier_bad:
-            fichier_good = open (path_to_result, "a")
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
             line = str(cmpt) + '\t' + line
             line = line.replace('[','')
             line = line.replace(']','')
@@ -501,12 +446,8 @@ def main ():
             line = line.replace("'",'')
             cmpt+=1
             fichier_good.write(line)
-<<<<<<< HEAD
         fichier_good.close()
     with open(os.environ["RESULT_INTER"], "w"): pass #Permet d'effacer le contenu de Clustering a chaque fois qu'on relance sur un autre fasta.
-=======
-            fichier_good.close()
->>>>>>> fe4fb10bae71a78ad72295cda9ddc5ad7807e873
 
 
 if __name__ == "__main__":
